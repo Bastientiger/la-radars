@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:fitsSystemWindows="true">
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingHorizontal="24dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="32dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="-12dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/back"
+            android:src="@drawable/ic_back"
+            app:tint="@color/text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings"
+            android:textColor="@color/text"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView style="@style/SectionTitle" android:text="@string/section_units" />
+    <RadioGroup
+        android:id="@+id/unitsGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RadioButton android:id="@+id/unitsUs" style="@style/SettingRadio" android:text="@string/units_us" />
+        <RadioButton android:id="@+id/unitsMetric" style="@style/SettingRadio" android:text="@string/units_metric" />
+    </RadioGroup>
+
+    <TextView style="@style/SectionTitle" android:text="@string/section_alerts" />
+    <com.google.android.material.materialswitch.MaterialSwitch android:id="@+id/voice" style="@style/SettingSwitch" android:text="@string/setting_voice" />
+    <com.google.android.material.materialswitch.MaterialSwitch android:id="@+id/sound" style="@style/SettingSwitch" android:text="@string/setting_sound" />
+    <com.google.android.material.materialswitch.MaterialSwitch android:id="@+id/vibration" style="@style/SettingSwitch" android:text="@string/setting_vibration" />
+    <com.google.android.material.materialswitch.MaterialSwitch android:id="@+id/onlyLive" style="@style/SettingSwitch" android:text="@string/setting_only_live" />
+
+    <TextView style="@style/SectionTitle" android:text="@string/section_auto_start" />
+    <com.google.android.material.materialswitch.MaterialSwitch android:id="@+id/autoDriving" style="@style/SettingSwitch" android:text="@string/setting_auto_driving" />
+    <com.google.android.material.materialswitch.MaterialSwitch android:id="@+id/autoBluetooth" style="@style/SettingSwitch" android:text="@string/setting_auto_bluetooth" />
+    <Button
+        android:id="@+id/chooseDevice"
+        style="@style/Widget.Material3.Button.TonalButton"
+        app:backgroundTint="@color/ring1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_device"
+        android:visibility="gone" />
+    <TextView
+        android:id="@+id/autoStartHint"
+        style="@style/SettingHint"
+        android:text="@string/auto_start_hint" />
+    <Button
+        android:id="@+id/backgroundLocation"
+        style="@style/Widget.Material3.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/allow_background_location"
+        app:backgroundTint="@color/live"
+        android:visibility="gone" />
+
+    <TextView style="@style/SectionTitle" android:text="@string/section_data" />
+    <TextView android:id="@+id/dataVersion" style="@style/SettingHint" />
+    <TextView android:id="@+id/lastCheck" style="@style/SettingHint" />
+    <Button
+        android:id="@+id/updateNow"
+        style="@style/Widget.Material3.Button.TonalButton"
+        app:backgroundTint="@color/ring1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/check_updates" />
+    <Button
+        android:id="@+id/clearReports"
+        style="@style/Widget.Material3.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/clear_reports"
+        android:textColor="@color/warn"
+        android:visibility="gone" />
+
+    <TextView style="@style/SectionTitle" android:text="@string/section_trips" />
+    <Button
+        android:id="@+id/trips"
+        style="@style/Widget.Material3.Button.TonalButton"
+        app:backgroundTint="@color/ring1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/trips_all" />
+
+    <TextView
+        android:id="@+id/version"
+        style="@style/SettingHint"
+        android:layout_marginTop="24dp" />
+</LinearLayout>
+</ScrollView>
+</FrameLayout>

@@ -1,0 +1,2752 @@
+[
+ {
+  "id": "1-1",
+  "district": 1,
+  "street": "Beverly Blvd",
+  "from": "Belmont Ave",
+  "to": "Witmer St",
+  "speed_limit": 35,
+  "status": "Warning Live",
+  "from_coord": [
+   34.063415,
+   -118.263063
+  ],
+  "to_coord": [
+   34.062323,
+   -118.260642
+  ],
+  "length_m": 254,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "1-2",
+  "district": 1,
+  "street": "Cypress Ave",
+  "from": "Cazador St",
+  "to": "Macon St (midblock)",
+  "speed_limit": 30,
+  "status": "Construction",
+  "from_coord": [
+   34.103604,
+   -118.237071
+  ],
+  "to_coord": [
+   34.100827,
+   -118.234725
+  ],
+  "length_m": 377,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "1-3",
+  "district": 1,
+  "street": "N Figueroa St",
+  "from": "Avenue 45",
+  "to": "Avenue 51",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.09605,
+   -118.207233
+  ],
+  "to_coord": [
+   34.105626,
+   -118.200835
+  ],
+  "length_m": 1217,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "1-4",
+  "district": 1,
+  "street": "S Figueroa St",
+  "from": "W Adams Blvd",
+  "to": "W 23rd St",
+  "speed_limit": 30,
+  "status": "Construction",
+  "from_coord": [
+   34.028154,
+   -118.276002
+  ],
+  "to_coord": [
+   34.030762,
+   -118.274339
+  ],
+  "length_m": 328,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "1-5",
+  "district": 1,
+  "street": "W 8th St",
+  "from": "S Westmoreland Ave",
+  "to": "S Hoover St",
+  "speed_limit": 35,
+  "status": "Warning Live",
+  "from_coord": [
+   34.057718,
+   -118.28908
+  ],
+  "to_coord": [
+   34.057742,
+   -118.284212
+  ],
+  "length_m": 448,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "1-6",
+  "district": 1,
+  "street": "W Olympic Blvd",
+  "from": "Elden Ave",
+  "to": "S Hoover St",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.05241,
+   -118.287727
+  ],
+  "to_coord": [
+   34.052416,
+   -118.284193
+  ],
+  "length_m": 326,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "1-7",
+  "district": 1,
+  "street": "W Washington Blvd",
+  "from": "S New Hampshire Ave",
+  "to": "S Vermont Ave",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.040001,
+   -118.292381
+  ],
+  "to_coord": [
+   34.040004,
+   -118.291563
+  ],
+  "length_m": 75,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "1-8",
+  "district": 1,
+  "street": "Wilshire Blvd",
+  "from": "S Rampart Blvd",
+  "to": "S Park View St",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.060912,
+   -118.282317
+  ],
+  "to_coord": [
+   34.059652,
+   -118.279525
+  ],
+  "length_m": 293,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "2-1",
+  "district": 2,
+  "street": "Coldwater Canyon Ave",
+  "from": "Vanowen St",
+  "to": "Bassett St",
+  "speed_limit": 35,
+  "status": "Warning Live",
+  "from_coord": [
+   34.193939,
+   -118.413788
+  ],
+  "to_coord": [
+   34.195788,
+   -118.413789
+  ],
+  "length_m": 206,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "2-2",
+  "district": 2,
+  "street": "Laurel Canyon Blvd",
+  "from": "Archwood St",
+  "to": "Vanowen St",
+  "speed_limit": 40,
+  "status": "Warning Live",
+  "from_coord": [
+   34.192123,
+   -118.396512
+  ],
+  "to_coord": [
+   34.19394,
+   -118.39651
+  ],
+  "length_m": 202,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "manual"
+  }
+ },
+ {
+  "id": "2-3",
+  "district": 2,
+  "street": "Magnolia Blvd",
+  "from": "Tujunga Ave",
+  "to": "Klump Ave",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.164896,
+   -118.378977
+  ],
+  "to_coord": [
+   34.1649,
+   -118.375743
+  ],
+  "length_m": 298,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "2-4",
+  "district": 2,
+  "street": "Oxnard St",
+  "from": "Ethel Ave",
+  "to": "Coldwater Canyon Ave",
+  "speed_limit": 35,
+  "status": "Warning Live",
+  "from_coord": [
+   34.179403,
+   -118.418151
+  ],
+  "to_coord": [
+   34.179404,
+   -118.413785
+  ],
+  "length_m": 402,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "2-5",
+  "district": 2,
+  "street": "Sherman Way",
+  "from": "N Cedar Rd",
+  "to": "Costello Ave",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.201196,
+   -118.440604
+  ],
+  "to_coord": [
+   34.201198,
+   -118.437808
+  ],
+  "length_m": 257,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "2-6",
+  "district": 2,
+  "street": "Vanowen St",
+  "from": "Morse Ave",
+  "to": "Goodland Ave",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.193939,
+   -118.417327
+  ],
+  "to_coord": [
+   34.19394,
+   -118.411923
+  ],
+  "length_m": 497,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "2-7",
+  "district": 2,
+  "street": "Victory Blvd",
+  "from": "Ethel Ave",
+  "to": "Coldwater Canyon Ave",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.186673,
+   -118.418152
+  ],
+  "to_coord": [
+   34.186676,
+   -118.413786
+  ],
+  "length_m": 402,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "2-8",
+  "district": 2,
+  "street": "Victory Blvd",
+  "from": "Mammoth Ave",
+  "to": "Ventura Canyon Ave",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.186667,
+   -118.432558
+  ],
+  "to_coord": [
+   34.186668,
+   -118.429066
+  ],
+  "length_m": 321,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "3-1",
+  "district": 3,
+  "street": "Victory Blvd",
+  "from": "Canby Ave",
+  "to": "LA River",
+  "speed_limit": 45,
+  "status": "Construction",
+  "from_coord": [
+   34.186597,
+   -118.534833
+  ],
+  "to_coord": [
+   34.186617,
+   -118.529056
+  ],
+  "length_m": 531,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "manual"
+  }
+ },
+ {
+  "id": "3-2",
+  "district": 3,
+  "street": "Reseda Blvd",
+  "from": "Erwin St",
+  "to": "Victory Blvd",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.183875,
+   -118.536019
+  ],
+  "to_coord": [
+   34.186596,
+   -118.536024
+  ],
+  "length_m": 303,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "3-3",
+  "district": 3,
+  "street": "Winnetka Ave",
+  "from": "Arminta St",
+  "to": "Strathern St",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.213168,
+   -118.571019
+  ],
+  "to_coord": [
+   34.215586,
+   -118.571025
+  ],
+  "length_m": 269,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "3-4",
+  "district": 3,
+  "street": "Ventura Blvd",
+  "from": "Winnetka Ave",
+  "to": "Quakertown Ave",
+  "speed_limit": 40,
+  "status": "Construction",
+  "from_coord": [
+   34.17096,
+   -118.57092
+  ],
+  "to_coord": [
+   34.17138,
+   -118.569769
+  ],
+  "length_m": 116,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "3-5",
+  "district": 3,
+  "street": "Vanowen St",
+  "from": "Hatillo Ave",
+  "to": "Corbin Ave",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.193814,
+   -118.56488
+  ],
+  "to_coord": [
+   34.193818,
+   -118.562235
+  ],
+  "length_m": 243,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "3-6",
+  "district": 3,
+  "street": "Reseda Blvd",
+  "from": "Wyandotte St",
+  "to": "Valerio St",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.202944,
+   -118.53605
+  ],
+  "to_coord": [
+   34.204758,
+   -118.536053
+  ],
+  "length_m": 202,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "3-7",
+  "district": 3,
+  "street": "Sherman Way",
+  "from": "Vanalden Ave",
+  "to": "Calvin Ave",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.201102,
+   -118.549146
+  ],
+  "to_coord": [
+   34.201092,
+   -118.555682
+  ],
+  "length_m": 601,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "3-8",
+  "district": 3,
+  "street": "Victory Blvd",
+  "from": "Belmar Ave",
+  "to": "Tampa Ave",
+  "speed_limit": 45,
+  "status": "Construction",
+  "from_coord": [
+   34.186568,
+   -118.558205
+  ],
+  "to_coord": [
+   34.186575,
+   -118.553489
+  ],
+  "length_m": 434,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "4-1",
+  "district": 4,
+  "street": "N Highland Ave",
+  "from": "Franklin Pl",
+  "to": "Camrose Dr",
+  "speed_limit": 35,
+  "status": "Warning Live",
+  "from_coord": [
+   34.105111,
+   -118.337473
+  ],
+  "to_coord": [
+   34.108233,
+   -118.337071
+  ],
+  "length_m": 349,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "4-2",
+  "district": 4,
+  "street": "Victory Blvd",
+  "from": "LA River",
+  "to": "Newcastle Ave",
+  "speed_limit": 45,
+  "status": "Construction",
+  "from_coord": [
+   34.186617,
+   -118.529056
+  ],
+  "to_coord": [
+   34.18671,
+   -118.525473
+  ],
+  "length_m": 330,
+  "geocode_notes": {
+   "from": "manual",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "4-3",
+  "district": 4,
+  "street": "N Western Ave",
+  "from": "Franklin Ave",
+  "to": "Los Feliz Blvd",
+  "speed_limit": 35,
+  "status": "Warning Live",
+  "from_coord": [
+   34.105381,
+   -118.309282
+  ],
+  "to_coord": [
+   34.1082,
+   -118.30928
+  ],
+  "length_m": 313,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "manual"
+  }
+ },
+ {
+  "id": "4-4",
+  "district": 4,
+  "street": "Sherman Way",
+  "from": "Lindley Ave",
+  "to": "Hesperia Ave",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.201127,
+   -118.527318
+  ],
+  "to_coord": [
+   34.201128,
+   -118.526226
+  ],
+  "length_m": 100,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "4-5",
+  "district": 4,
+  "street": "Hollywood Blvd",
+  "from": "N Vista St",
+  "to": "Camino Palmero St",
+  "speed_limit": 30,
+  "status": "Construction",
+  "from_coord": [
+   34.10164,
+   -118.351872
+  ],
+  "to_coord": [
+   34.101629,
+   -118.349974
+  ],
+  "length_m": 175,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "4-6",
+  "district": 4,
+  "street": "Burbank Blvd",
+  "from": "Sepulveda Blvd",
+  "to": "Kester Ave",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.172107,
+   -118.466167
+  ],
+  "to_coord": [
+   34.172113,
+   -118.457436
+  ],
+  "length_m": 803,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "4-7",
+  "district": 4,
+  "street": "Franklin Ave",
+  "from": "Cheremoya Ave",
+  "to": "Tamarind Ave (north)",
+  "speed_limit": 35,
+  "status": "Warning Live",
+  "from_coord": [
+   34.105252,
+   -118.320417
+  ],
+  "to_coord": [
+   34.105255,
+   -118.319285
+  ],
+  "length_m": 104,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "4-8",
+  "district": 4,
+  "street": "Fountain Ave",
+  "from": "Sunset Bl",
+  "to": "Hyperion Ave",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.095821,
+   -118.284256
+  ],
+  "to_coord": [
+   34.095776,
+   -118.277162
+  ],
+  "length_m": 653,
+  "geocode_notes": {
+   "from": "manual",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "4-9",
+  "district": 4,
+  "street": "White Oak Ave",
+  "from": "Ventura Bl",
+  "to": "Margate St",
+  "speed_limit": 40,
+  "status": "Construction",
+  "from_coord": [
+   34.162427,
+   -118.51857
+  ],
+  "to_coord": [
+   34.168605,
+   -118.518547
+  ],
+  "length_m": 687,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "5-1",
+  "district": 5,
+  "street": "S La Cienega Blvd",
+  "from": "W 18th St",
+  "to": "Horner St",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.044532,
+   -118.376819
+  ],
+  "to_coord": [
+   34.049888,
+   -118.376134
+  ],
+  "length_m": 599,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "5-2",
+  "district": 5,
+  "street": "S La Cienega Blvd",
+  "from": "W Pico Blvd",
+  "to": "W Olympic Blvd",
+  "speed_limit": 35,
+  "status": "Warning Live",
+  "from_coord": [
+   34.053321,
+   -118.376131
+  ],
+  "to_coord": [
+   34.059462,
+   -118.376174
+  ],
+  "length_m": 683,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "5-3",
+  "district": 5,
+  "street": "N La Brea Ave",
+  "from": "W 1st St",
+  "to": "Beverly Blvd",
+  "speed_limit": 30,
+  "status": "Warning Live",
+  "from_coord": [
+   34.073577,
+   -118.344031
+  ],
+  "to_coord": [
+   34.076163,
+   -118.344035
+  ],
+  "length_m": 288,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "5-4",
+  "district": 5,
+  "street": "W Olympic Blvd",
+  "from": "S La Brea Ave",
+  "to": "S Sycamore Ave",
+  "speed_limit": 35,
+  "status": "Warning Live",
+  "from_coord": [
+   34.057214,
+   -118.345893
+  ],
+  "to_coord": [
+   34.05719,
+   -118.344843
+  ],
+  "length_m": 97,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "5-5",
+  "district": 5,
+  "street": "N Fairfax Ave",
+  "from": "Clinton St",
+  "to": "Waring Ave",
+  "speed_limit": 35,
+  "status": "Warning Live",
+  "from_coord": [
+   34.081633,
+   -118.36146
+  ],
+  "to_coord": [
+   34.085474,
+   -118.36143
+  ],
+  "length_m": 427,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "5-6",
+  "district": 5,
+  "street": "W Olympic Blvd",
+  "from": "Alvira St",
+  "to": "Stearns Dr",
+  "speed_limit": 35,
+  "status": "Warning Live",
+  "from_coord": [
+   34.058957,
+   -118.37061
+  ],
+  "to_coord": [
+   34.058648,
+   -118.367898
+  ],
+  "length_m": 252,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "5-7",
+  "district": 5,
+  "street": "Melrose Ave",
+  "from": "N Hayworth Ave",
+  "to": "N Orange Grove Ave",
+  "speed_limit": 35,
+  "status": "Warning Live",
+  "from_coord": [
+   34.083795,
+   -118.362676
+  ],
+  "to_coord": [
+   34.083791,
+   -118.36049
+  ],
+  "length_m": 201,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "5-8",
+  "district": 5,
+  "street": "W Olympic Blvd",
+  "from": "Greenfield Ave",
+  "to": "Purdue Ave",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.041748,
+   -118.435302
+  ],
+  "to_coord": [
+   34.037048,
+   -118.443162
+  ],
+  "length_m": 893,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "6-1",
+  "district": 6,
+  "street": "Nordhoff St",
+  "from": "Pacoima Wash",
+  "to": "Cedros Ave",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.235471,
+   -118.457505
+  ],
+  "to_coord": [
+   34.235433,
+   -118.453549
+  ],
+  "length_m": 364,
+  "geocode_notes": {
+   "from": "manual",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "6-2",
+  "district": 6,
+  "street": "Balboa Blvd",
+  "from": "Orange Line Busway",
+  "to": "Archwood St",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.1848769,
+   -118.5009933
+  ],
+  "to_coord": [
+   34.192996,
+   -118.501115
+  ],
+  "length_m": 903,
+  "geocode_notes": {
+   "from": "address",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "6-3",
+  "district": 6,
+  "street": "Victory Blvd",
+  "from": "Louise Ave",
+  "to": "High Tech Los Angeles East Dwy",
+  "speed_limit": 45,
+  "status": "Construction",
+  "from_coord": [
+   34.186723,
+   -118.509938
+  ],
+  "to_coord": [
+   34.1867067,
+   -118.5045242
+  ],
+  "length_m": 498,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "address"
+  }
+ },
+ {
+  "id": "6-4",
+  "district": 6,
+  "street": "Victory Blvd",
+  "from": "Kester Ave",
+  "to": "Cedros Ave",
+  "speed_limit": 35,
+  "status": "Warning Live",
+  "from_coord": [
+   34.186656,
+   -118.457448
+  ],
+  "to_coord": [
+   34.186658,
+   -118.453081
+  ],
+  "length_m": 402,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "6-5",
+  "district": 6,
+  "street": "Vanowen St",
+  "from": "Sepulveda Blvd",
+  "to": "Columbus Ave",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.193917,
+   -118.466187
+  ],
+  "to_coord": [
+   34.193918,
+   -118.464003
+  ],
+  "length_m": 201,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "6-6",
+  "district": 6,
+  "street": "Sherman Way",
+  "from": "Kester Ave",
+  "to": "Sherman Cir (midblock)",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.201187,
+   -118.457459
+  ],
+  "to_coord": [
+   34.201191,
+   -118.451505
+  ],
+  "length_m": 548,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "6-7",
+  "district": 6,
+  "street": "Sepulveda Blvd",
+  "from": "Stagg St",
+  "to": "Saticoy St",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.212073,
+   -118.466203
+  ],
+  "to_coord": [
+   34.208446,
+   -118.466199
+  ],
+  "length_m": 403,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "6-8",
+  "district": 6,
+  "street": "Woodman Ave",
+  "from": "Roscoe Bl",
+  "to": "Strathern St",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.221663,
+   -118.432732
+  ],
+  "to_coord": [
+   34.215479,
+   -118.431038
+  ],
+  "length_m": 705,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "6-9",
+  "district": 6,
+  "street": "Woodman Ave",
+  "from": "Terra Bella St",
+  "to": "Nordhoff St",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.239911,
+   -118.443504
+  ],
+  "to_coord": [
+   34.235343,
+   -118.440421
+  ],
+  "length_m": 582,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "7-1",
+  "district": 7,
+  "street": "Sepulveda Blvd",
+  "from": "Tupper St",
+  "to": "Plummer St",
+  "speed_limit": 35,
+  "status": "Warning Live",
+  "from_coord": [
+   34.239155,
+   -118.467555
+  ],
+  "to_coord": [
+   34.242782,
+   -118.46752
+  ],
+  "length_m": 403,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "7-2",
+  "district": 7,
+  "street": "Van Nuys Blvd",
+  "from": "5 Fwy",
+  "to": "Laurel Canyon Blvd",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.25683,
+   -118.434793
+  ],
+  "to_coord": [
+   34.258781,
+   -118.432118
+  ],
+  "length_m": 328,
+  "geocode_notes": {
+   "from": "ambiguous (2 places), nearest to other end",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "7-3",
+  "district": 7,
+  "street": "Foothill Blvd",
+  "from": "Newhome Ave",
+  "to": "Sherman Grove Ave",
+  "speed_limit": 35,
+  "status": "Warning Live",
+  "from_coord": [
+   34.259742,
+   -118.322312
+  ],
+  "to_coord": [
+   34.259724,
+   -118.320114
+  ],
+  "length_m": 202,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "7-4",
+  "district": 7,
+  "street": "Laurel Canyon Blvd",
+  "from": "Pinney St",
+  "to": "Hoyt St",
+  "speed_limit": 40,
+  "status": "Construction",
+  "from_coord": [
+   34.259504,
+   -118.432882
+  ],
+  "to_coord": [
+   34.258017,
+   -118.431308
+  ],
+  "length_m": 220,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "7-5",
+  "district": 7,
+  "street": "Polk St",
+  "from": "Glenoaks Blvd",
+  "to": "Fellows Ave (midblock)",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.307587,
+   -118.449713
+  ],
+  "to_coord": [
+   34.30897,
+   -118.448161
+  ],
+  "length_m": 210,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "7-6",
+  "district": 7,
+  "street": "Laurel Canyon Blvd",
+  "from": "Wolfskill St",
+  "to": "Pacoima Wash",
+  "speed_limit": 40,
+  "status": "Construction",
+  "from_coord": [
+   34.272901,
+   -118.447124
+  ],
+  "to_coord": [
+   34.2668,
+   -118.4406
+  ],
+  "length_m": 905,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "manual"
+  }
+ },
+ {
+  "id": "7-7",
+  "district": 7,
+  "street": "Nordhoff St",
+  "from": "Noble Ave",
+  "to": "Pacoima Wash",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.235484,
+   -118.461039
+  ],
+  "to_coord": [
+   34.235471,
+   -118.457505
+  ],
+  "length_m": 325,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "manual"
+  }
+ },
+ {
+  "id": "7-8",
+  "district": 7,
+  "street": "Van Nuys Blvd",
+  "from": "Herrick Ave",
+  "to": "De Foe Ave",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.27129,
+   -118.414972
+  ],
+  "to_coord": [
+   34.271889,
+   -118.414149
+  ],
+  "length_m": 101,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "8-1",
+  "district": 8,
+  "street": "W Florence Ave",
+  "from": "S Vermont Ave",
+  "to": "S Hoover St",
+  "speed_limit": 35,
+  "status": "Warning Live",
+  "from_coord": [
+   33.974619,
+   -118.291647
+  ],
+  "to_coord": [
+   33.974638,
+   -118.287076
+  ],
+  "length_m": 422,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "8-2",
+  "district": 8,
+  "street": "S Vermont Ave",
+  "from": "W 66th St",
+  "to": "W Florence Ave",
+  "speed_limit": 35,
+  "status": "Warning Live",
+  "from_coord": [
+   33.979154,
+   -118.291651
+  ],
+  "to_coord": [
+   33.974619,
+   -118.291647
+  ],
+  "length_m": 504,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "8-3",
+  "district": 8,
+  "street": "S Figueroa St",
+  "from": "W 85th St",
+  "to": "W Manchester Ave",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   33.961119,
+   -118.282701
+  ],
+  "to_coord": [
+   33.96008,
+   -118.282701
+  ],
+  "length_m": 116,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "8-4",
+  "district": 8,
+  "street": "W Florence Ave",
+  "from": "S Van Ness Ave",
+  "to": "Haas Ave",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   33.974585,
+   -118.317743
+  ],
+  "to_coord": [
+   33.974583,
+   -118.316837
+  ],
+  "length_m": 84,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "8-5",
+  "district": 8,
+  "street": "W Gage Ave",
+  "from": "S Halldale Ave",
+  "to": "Raymond Ave",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   33.98235,
+   -118.3024
+  ],
+  "to_coord": [
+   33.982343,
+   -118.298045
+  ],
+  "length_m": 402,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "8-6",
+  "district": 8,
+  "street": "S Normandie Ave",
+  "from": "W 62nd St",
+  "to": "W 64th St",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   33.983249,
+   -118.300251
+  ],
+  "to_coord": [
+   33.981422,
+   -118.300259
+  ],
+  "length_m": 203,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "8-7",
+  "district": 8,
+  "street": "W Martin Luther King Jr Blvd",
+  "from": "S Saint Andrews Pl",
+  "to": "S Hobart Blvd",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.010854,
+   -118.311202
+  ],
+  "to_coord": [
+   34.010856,
+   -118.307791
+  ],
+  "length_m": 314,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "8-8",
+  "district": 8,
+  "street": "S Western Ave",
+  "from": "W 53rd St",
+  "to": "W 55th St",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   33.994163,
+   -118.308928
+  ],
+  "to_coord": [
+   33.99236,
+   -118.308931
+  ],
+  "length_m": 200,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "8-9",
+  "district": 8,
+  "street": "S Figueroa St",
+  "from": "W 67th St",
+  "to": "W 68th St (east)",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   33.978986,
+   -118.282668
+  ],
+  "to_coord": [
+   33.97823,
+   -118.282668
+  ],
+  "length_m": 84,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "9-1",
+  "district": 9,
+  "street": "W Slauson Ave",
+  "from": "S Budlong Ave",
+  "to": "Menlo Ave",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   33.989106,
+   -118.295836
+  ],
+  "to_coord": [
+   33.989113,
+   -118.289251
+  ],
+  "length_m": 607,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "9-2",
+  "district": 9,
+  "street": "S Vermont Ave",
+  "from": "W 57th St",
+  "to": "W 58th Pl",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   33.990489,
+   -118.291483
+  ],
+  "to_coord": [
+   33.988343,
+   -118.291477
+  ],
+  "length_m": 239,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "9-3",
+  "district": 9,
+  "street": "E Manchester Ave",
+  "from": "Wadsworth Ave",
+  "to": "S Central Ave",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   33.960155,
+   -118.258574
+  ],
+  "to_coord": [
+   33.960171,
+   -118.256393
+  ],
+  "length_m": 201,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "9-4",
+  "district": 9,
+  "street": "S Figueroa St",
+  "from": "W 62nd St",
+  "to": "W Gage Ave",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   33.983269,
+   -118.282664
+  ],
+  "to_coord": [
+   33.982374,
+   -118.282664
+  ],
+  "length_m": 100,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "9-5",
+  "district": 9,
+  "street": "W Gage Ave",
+  "from": "S Hoover St",
+  "to": "S Figueroa St",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   33.982022,
+   -118.287045
+  ],
+  "to_coord": [
+   33.982374,
+   -118.282664
+  ],
+  "length_m": 406,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "9-6",
+  "district": 9,
+  "street": "E Vernon Ave",
+  "from": "Wadsworth Ave",
+  "to": "Hooper Ave",
+  "speed_limit": 30,
+  "status": "Construction",
+  "from_coord": [
+   34.003924,
+   -118.258755
+  ],
+  "to_coord": [
+   34.0039,
+   -118.252125
+  ],
+  "length_m": 611,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "9-7",
+  "district": 9,
+  "street": "W Slauson Ave",
+  "from": "Brentwood St",
+  "to": "Inskeep Ave (midblock)",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   33.989173,
+   -118.277173
+  ],
+  "to_coord": [
+   33.989179,
+   -118.276111
+  ],
+  "length_m": 98,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "9-8",
+  "district": 9,
+  "street": "Avalon Blvd",
+  "from": "E 74th St",
+  "to": "E 77th St",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   33.972984,
+   -118.26516
+  ],
+  "to_coord": [
+   33.969342,
+   -118.265148
+  ],
+  "length_m": 405,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "9-9",
+  "district": 9,
+  "street": "S Central Ave",
+  "from": "E 91st St (east)",
+  "to": "E 92nd Ave",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   33.953867,
+   -118.256421
+  ],
+  "to_coord": [
+   33.953275,
+   -118.256423
+  ],
+  "length_m": 66,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "10-1",
+  "district": 10,
+  "street": "S La Cienega Blvd",
+  "from": "3721 La Cienega Bl",
+  "to": "Bowesfield St",
+  "speed_limit": 45,
+  "status": "Warning Live",
+  "from_coord": [
+   34.0197311,
+   -118.3722764
+  ],
+  "to_coord": [
+   34.023348,
+   -118.37225
+  ],
+  "length_m": 402,
+  "geocode_notes": {
+   "from": "address",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "10-2",
+  "district": 10,
+  "street": "W Olympic Blvd",
+  "from": "Irolo St",
+  "to": "Fedora St",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.052619,
+   -118.301026
+  ],
+  "to_coord": [
+   34.052634,
+   -118.297888
+  ],
+  "length_m": 289,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "10-3",
+  "district": 10,
+  "street": "S La Cienega Blvd",
+  "from": "Sawyer St",
+  "to": "18th St",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.042551,
+   -118.376395
+  ],
+  "to_coord": [
+   34.044532,
+   -118.376819
+  ],
+  "length_m": 224,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "10-4",
+  "district": 10,
+  "street": "W 6th St",
+  "from": "S Berendo St",
+  "to": "S Vermont Ave",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.0636,
+   -118.294135
+  ],
+  "to_coord": [
+   34.063683,
+   -118.291644
+  ],
+  "length_m": 230,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "10-5",
+  "district": 10,
+  "street": "W Jefferson Blvd",
+  "from": "Crenshaw Blvd",
+  "to": "S Bronson Ave",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.025582,
+   -118.335099
+  ],
+  "to_coord": [
+   34.025587,
+   -118.333796
+  ],
+  "length_m": 120,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "10-6",
+  "district": 10,
+  "street": "W Washington Blvd",
+  "from": "3rd Ave",
+  "to": "S Van Ness Ave",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.039904,
+   -118.320074
+  ],
+  "to_coord": [
+   34.039916,
+   -118.316369
+  ],
+  "length_m": 341,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "10-7",
+  "district": 10,
+  "street": "S Western Ave",
+  "from": "W 24th St",
+  "to": "W Adams Blvd",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.034726,
+   -118.308969
+  ],
+  "to_coord": [
+   34.032694,
+   -118.308953
+  ],
+  "length_m": 226,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "10-8",
+  "district": 10,
+  "street": "S La Brea Ave",
+  "from": "Veronica St",
+  "to": "Coliseum St",
+  "speed_limit": 40,
+  "status": "Construction",
+  "from_coord": [
+   34.012826,
+   -118.35547
+  ],
+  "to_coord": [
+   34.018316,
+   -118.355562
+  ],
+  "length_m": 611,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "10-9",
+  "district": 10,
+  "street": "Arlington Ave",
+  "from": "W 21st St",
+  "to": "W 18th St",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.038044,
+   -118.31769
+  ],
+  "to_coord": [
+   34.040904,
+   -118.317701
+  ],
+  "length_m": 318,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "11-1",
+  "district": 11,
+  "street": "Venice Blvd",
+  "from": "Lincoln Blvd",
+  "to": "Pisani Pl",
+  "speed_limit": 35,
+  "status": "Warning Live",
+  "from_coord": [
+   33.994045,
+   -118.452724
+  ],
+  "to_coord": [
+   33.99133,
+   -118.457824
+  ],
+  "length_m": 559,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "11-2",
+  "district": 11,
+  "street": "National Blvd",
+  "from": "Butler Ave",
+  "to": "405 Fwy",
+  "speed_limit": 35,
+  "status": "Warning Live",
+  "from_coord": [
+   34.024932,
+   -118.434113
+  ],
+  "to_coord": [
+   34.026836,
+   -118.429981
+  ],
+  "length_m": 436,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "11-3",
+  "district": 11,
+  "street": "S Barrington Ave",
+  "from": "Ohio Ave",
+  "to": "Santa Monica Blvd",
+  "speed_limit": 30,
+  "status": "Construction",
+  "from_coord": [
+   34.044429,
+   -118.456627
+  ],
+  "to_coord": [
+   34.043755,
+   -118.456045
+  ],
+  "length_m": 92,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "11-4",
+  "district": 11,
+  "street": "Washington Blvd",
+  "from": "Marr St",
+  "to": "Thatcher Ave",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   33.987852,
+   -118.452723
+  ],
+  "to_coord": [
+   33.989052,
+   -118.450594
+  ],
+  "length_m": 237,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "11-5",
+  "district": 11,
+  "street": "La Tijera Blvd",
+  "from": "Manchester Ave",
+  "to": "74th St",
+  "speed_limit": 40,
+  "status": "Construction",
+  "from_coord": [
+   33.95986,
+   -118.391411
+  ],
+  "to_coord": [
+   33.970542,
+   -118.379402
+  ],
+  "length_m": 1624,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "11-6",
+  "district": 11,
+  "street": "Vista Del Mar",
+  "from": "City Limit",
+  "to": "Culver Bl",
+  "speed_limit": 40,
+  "status": "Construction",
+  "from_coord": [
+   33.916442,
+   -118.427623
+  ],
+  "to_coord": [
+   33.958779,
+   -118.448544
+  ],
+  "length_m": 5088,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "11-7",
+  "district": 11,
+  "street": "Mulholland Dr",
+  "from": "Calneva",
+  "to": "Corda",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.130408,
+   -118.49395
+  ],
+  "to_coord": [
+   34.130093,
+   -118.488212
+  ],
+  "length_m": 529,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "11-8",
+  "district": 11,
+  "street": "Slauson Ave",
+  "from": "Braddock Dr",
+  "to": "Culver Bl",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   33.996631,
+   -118.411555
+  ],
+  "to_coord": [
+   33.998523,
+   -118.414779
+  ],
+  "length_m": 364,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "12-1",
+  "district": 12,
+  "street": "Balboa Blvd",
+  "from": "Lassen St",
+  "to": "Plummer St",
+  "speed_limit": 35,
+  "status": "Warning Live",
+  "from_coord": [
+   34.250259,
+   -118.502404
+  ],
+  "to_coord": [
+   34.243007,
+   -118.502469
+  ],
+  "length_m": 806,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "12-2",
+  "district": 12,
+  "street": "Balboa Blvd",
+  "from": "118 Fwy",
+  "to": "Tulsa St",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.277025,
+   -118.502156
+  ],
+  "to_coord": [
+   34.268417,
+   -118.502234
+  ],
+  "length_m": 957,
+  "geocode_notes": {
+   "from": "ambiguous (2 places), nearest to other end",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "12-3",
+  "district": 12,
+  "street": "Nordhoff St",
+  "from": "Petit Ave",
+  "to": "Gothic Ave",
+  "speed_limit": 40,
+  "status": "Warning Live",
+  "from_coord": [
+   34.235727,
+   -118.498165
+  ],
+  "to_coord": [
+   34.235671,
+   -118.489495
+  ],
+  "length_m": 797,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "12-4",
+  "district": 12,
+  "street": "Nordhoff St",
+  "from": "Geyser Ave",
+  "to": "Yolanda Ave",
+  "speed_limit": 40,
+  "status": "Construction",
+  "from_coord": [
+   34.235488,
+   -118.542478
+  ],
+  "to_coord": [
+   34.235489,
+   -118.540456
+  ],
+  "length_m": 186,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "12-5",
+  "district": 12,
+  "street": "Reseda Blvd",
+  "from": "Kinzie St",
+  "to": "Superior St",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.248195,
+   -118.536091
+  ],
+  "to_coord": [
+   34.24638,
+   -118.53609
+  ],
+  "length_m": 202,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "12-6",
+  "district": 12,
+  "street": "Tampa Ave",
+  "from": "Merridy St",
+  "to": "Lassen St",
+  "speed_limit": 40,
+  "status": "Construction",
+  "from_coord": [
+   34.25213,
+   -118.553577
+  ],
+  "to_coord": [
+   34.250001,
+   -118.553576
+  ],
+  "length_m": 237,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "12-7",
+  "district": 12,
+  "street": "Sesnon Blvd",
+  "from": "High Glen Way",
+  "to": "Reseda Blvd",
+  "speed_limit": 45,
+  "status": "Construction",
+  "from_coord": [
+   34.297106,
+   -118.560305
+  ],
+  "to_coord": [
+   34.295651,
+   -118.543735
+  ],
+  "length_m": 1531,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "12-8",
+  "district": 12,
+  "street": "Valley Circle Bl",
+  "from": "Victory Bl",
+  "to": "Highlander Rd",
+  "speed_limit": 45,
+  "status": "Construction",
+  "from_coord": [
+   34.184653,
+   -118.655837
+  ],
+  "to_coord": [
+   34.200478,
+   -118.656151
+  ],
+  "length_m": 1760,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "13-1",
+  "district": 13,
+  "street": "N Highland Ave",
+  "from": "W Sunset Blvd",
+  "to": "Hollywood Blvd",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.097973,
+   -118.338658
+  ],
+  "to_coord": [
+   34.101545,
+   -118.338695
+  ],
+  "length_m": 397,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "13-2",
+  "district": 13,
+  "street": "W Sunset Blvd",
+  "from": "N Bronson Ave",
+  "to": "101 Fwy",
+  "speed_limit": 30,
+  "status": "Construction",
+  "from_coord": [
+   34.098048,
+   -118.317958
+  ],
+  "to_coord": [
+   34.09807,
+   -118.314394
+  ],
+  "length_m": 328,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "13-3",
+  "district": 13,
+  "street": "W Sunset Blvd",
+  "from": "Rosemont Ave",
+  "to": "N Alvarado St",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.077872,
+   -118.266002
+  ],
+  "to_coord": [
+   34.077619,
+   -118.263457
+  ],
+  "length_m": 236,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "13-4",
+  "district": 13,
+  "street": "W Sunset Blvd",
+  "from": "N Sycamore Ave",
+  "to": "N McCadden Pl",
+  "speed_limit": 30,
+  "status": "Construction",
+  "from_coord": [
+   34.097966,
+   -118.342502
+  ],
+  "to_coord": [
+   34.097975,
+   -118.337789
+  ],
+  "length_m": 434,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "13-5",
+  "district": 13,
+  "street": "Santa Monica Blvd",
+  "from": "N Hobart Blvd",
+  "to": "N Normandie Ave",
+  "speed_limit": 35,
+  "status": "Warning Live",
+  "from_coord": [
+   34.090798,
+   -118.304605
+  ],
+  "to_coord": [
+   34.090822,
+   -118.300482
+  ],
+  "length_m": 380,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "13-6",
+  "district": 13,
+  "street": "Riverside Dr",
+  "from": "Riverside Ter",
+  "to": "Allesandro St",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.101127,
+   -118.250823
+  ],
+  "to_coord": [
+   34.099591,
+   -118.250015
+  ],
+  "length_m": 186,
+  "geocode_notes": {
+   "from": "ambiguous (2 places), nearest to other end",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "13-7",
+  "district": 13,
+  "street": "3rd St",
+  "from": "Virgil Ave",
+  "to": "Commonwealth Ave",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.068982,
+   -118.286799
+  ],
+  "to_coord": [
+   34.068952,
+   -118.285707
+  ],
+  "length_m": 101,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "13-8",
+  "district": 13,
+  "street": "N Vermont Ave",
+  "from": "Melrose Ave",
+  "to": "Marathon St",
+  "speed_limit": 30,
+  "status": "Construction",
+  "from_coord": [
+   34.083588,
+   -118.29171
+  ],
+  "to_coord": [
+   34.084636,
+   -118.291714
+  ],
+  "length_m": 117,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "14-1",
+  "district": 14,
+  "street": "E 4th St",
+  "from": "S Pecan St",
+  "to": "S Boyle Ave",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.04296,
+   -118.221731
+  ],
+  "to_coord": [
+   34.043053,
+   -118.219627
+  ],
+  "length_m": 194,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "14-2",
+  "district": 14,
+  "street": "E 4th St",
+  "from": "S Mott Ave",
+  "to": "S Evergreen Ave",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.038915,
+   -118.207969
+  ],
+  "to_coord": [
+   34.037297,
+   -118.204342
+  ],
+  "length_m": 380,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "14-3",
+  "district": 14,
+  "street": "S San Pedro St",
+  "from": "E 17th St",
+  "to": "E 15th St",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.029088,
+   -118.256479
+  ],
+  "to_coord": [
+   34.030652,
+   -118.255443
+  ],
+  "length_m": 198,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "14-4",
+  "district": 14,
+  "street": "S San Pedro St",
+  "from": "E 6th St",
+  "to": "Winston St",
+  "speed_limit": 40,
+  "status": "Construction",
+  "from_coord": [
+   34.04226,
+   -118.24524
+  ],
+  "to_coord": [
+   34.044957,
+   -118.243442
+  ],
+  "length_m": 343,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "14-5",
+  "district": 14,
+  "street": "W 7th St",
+  "from": "S Flower St",
+  "to": "S Grand Ave",
+  "speed_limit": 25,
+  "status": "Construction",
+  "from_coord": [
+   34.048689,
+   -118.258765
+  ],
+  "to_coord": [
+   34.047291,
+   -118.256593
+  ],
+  "length_m": 253,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ambiguous (2 places), nearest to other end"
+  }
+ },
+ {
+  "id": "14-6",
+  "district": 14,
+  "street": "S Soto St",
+  "from": "E 6th St",
+  "to": "E 4th St",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.037454,
+   -118.213744
+  ],
+  "to_coord": [
+   34.040611,
+   -118.211757
+  ],
+  "length_m": 396,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "14-7",
+  "district": 14,
+  "street": "Huntington Dr",
+  "from": "Topaz St",
+  "to": "Monterey Rd",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.083176,
+   -118.190519
+  ],
+  "to_coord": [
+   34.085798,
+   -118.187485
+  ],
+  "length_m": 404,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "14-8",
+  "district": 14,
+  "street": "Marengo St",
+  "from": "N Mission Rd",
+  "to": "Lord St",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   34.060617,
+   -118.214393
+  ],
+  "to_coord": [
+   34.058909,
+   -118.212634
+  ],
+  "length_m": 250,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "15-1",
+  "district": 15,
+  "street": "N Avalon Blvd",
+  "from": "W Sandison St",
+  "to": "E N St",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   33.793305,
+   -118.263475
+  ],
+  "to_coord": [
+   33.790015,
+   -118.263217
+  ],
+  "length_m": 367,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "15-2",
+  "district": 15,
+  "street": "S Central Ave",
+  "from": "E 109th St",
+  "to": "E 114th St",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   33.936796,
+   -118.254184
+  ],
+  "to_coord": [
+   33.930966,
+   -118.254252
+  ],
+  "length_m": 648,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "15-3",
+  "district": 15,
+  "street": "Grandee Ave",
+  "from": "E Century Blvd",
+  "to": "E 108th St",
+  "speed_limit": 25,
+  "status": "Construction",
+  "from_coord": [
+   33.945672,
+   -118.243457
+  ],
+  "to_coord": [
+   33.937852,
+   -118.243999
+  ],
+  "length_m": 871,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "15-4",
+  "district": 15,
+  "street": "E 103rd St",
+  "from": "Fifth Blvd (midblock)",
+  "to": "Grandee Ave",
+  "speed_limit": 30,
+  "status": "Construction",
+  "from_coord": [
+   33.943272,
+   -118.248141
+  ],
+  "to_coord": [
+   33.943223,
+   -118.243487
+  ],
+  "length_m": 429,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "15-5",
+  "district": 15,
+  "street": "Wilmington Ave",
+  "from": "E 110th St",
+  "to": "E 113th St",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   33.935175,
+   -118.239031
+  ],
+  "to_coord": [
+   33.932465,
+   -118.239038
+  ],
+  "length_m": 301,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "15-6",
+  "district": 15,
+  "street": "S Gaffey St",
+  "from": "W 1st St",
+  "to": "W 2nd St",
+  "speed_limit": 35,
+  "status": "Warning Live",
+  "from_coord": [
+   33.743304,
+   -118.292303
+  ],
+  "to_coord": [
+   33.742398,
+   -118.292307
+  ],
+  "length_m": 101,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "15-7",
+  "district": 15,
+  "street": "Imperial Hwy",
+  "from": "Avalon Blvd",
+  "to": "Stanford Ave",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   33.931059,
+   -118.265155
+  ],
+  "to_coord": [
+   33.931033,
+   -118.262138
+  ],
+  "length_m": 278,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "ok"
+  }
+ },
+ {
+  "id": "15-8",
+  "district": 15,
+  "street": "Vermont Ave",
+  "from": "253rd St",
+  "to": "255th St",
+  "speed_limit": 35,
+  "status": "Construction",
+  "from_coord": [
+   33.794703,
+   -118.290826
+  ],
+  "to_coord": [
+   33.792798,
+   -118.290845
+  ],
+  "length_m": 212,
+  "geocode_notes": {
+   "from": "ok",
+   "to": "manual"
+  }
+ }
+]

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="start_trip"
+        android:enabled="true"
+        android:icon="@drawable/ic_radar"
+        android:shortcutShortLabel="@string/shortcut_start_short"
+        android:shortcutLongLabel="@string/shortcut_start_long">
+        <intent
+            android:action="com.laradars.app.START_TRIP"
+            android:targetPackage="com.laradars.app"
+            android:targetClass="com.laradars.app.MainActivity" />
+    </shortcut>
+</shortcuts>

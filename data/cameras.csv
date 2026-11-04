@@ -1,0 +1,126 @@
+id,district,street,from,to,speed_limit,status
+1-1,1,Beverly Blvd,Belmont Ave,Witmer St,35,Warning Live
+1-2,1,Cypress Ave,Cazador St,Macon St (midblock),30,Construction
+1-3,1,N Figueroa St,Avenue 45,Avenue 51,35,Construction
+1-4,1,S Figueroa St,W Adams Blvd,W 23rd St,30,Construction
+1-5,1,W 8th St,S Westmoreland Ave,S Hoover St,35,Warning Live
+1-6,1,W Olympic Blvd,Elden Ave,S Hoover St,35,Construction
+1-7,1,W Washington Blvd,S New Hampshire Ave,S Vermont Ave,35,Construction
+1-8,1,Wilshire Blvd,S Rampart Blvd,S Park View St,35,Construction
+2-1,2,Coldwater Canyon Ave,Vanowen St,Bassett St,35,Warning Live
+2-2,2,Laurel Canyon Blvd,Archwood St,Vanowen St,40,Warning Live
+2-3,2,Magnolia Blvd,Tujunga Ave,Klump Ave,35,Construction
+2-4,2,Oxnard St,Ethel Ave,Coldwater Canyon Ave,35,Warning Live
+2-5,2,Sherman Way,N Cedar Rd,Costello Ave,35,Construction
+2-6,2,Vanowen St,Morse Ave,Goodland Ave,35,Construction
+2-7,2,Victory Blvd,Ethel Ave,Coldwater Canyon Ave,35,Construction
+2-8,2,Victory Blvd,Mammoth Ave,Ventura Canyon Ave,35,Construction
+3-1,3,Victory Blvd,Canby Ave,LA River,45,Construction
+3-2,3,Reseda Blvd,Erwin St,Victory Blvd,35,Construction
+3-3,3,Winnetka Ave,Arminta St,Strathern St,35,Construction
+3-4,3,Ventura Blvd,Winnetka Ave,Quakertown Ave,40,Construction
+3-5,3,Vanowen St,Hatillo Ave,Corbin Ave,35,Construction
+3-6,3,Reseda Blvd,Wyandotte St,Valerio St,35,Construction
+3-7,3,Sherman Way,Vanalden Ave,Calvin Ave,35,Construction
+3-8,3,Victory Blvd,Belmar Ave,Tampa Ave,45,Construction
+4-1,4,N Highland Ave,Franklin Pl,Camrose Dr,35,Warning Live
+4-2,4,Victory Blvd,LA River,Newcastle Ave,45,Construction
+4-3,4,N Western Ave,Franklin Ave,Los Feliz Blvd,35,Warning Live
+4-4,4,Sherman Way,Lindley Ave,Hesperia Ave,35,Construction
+4-5,4,Hollywood Blvd,N Vista St,Camino Palmero St,30,Construction
+4-6,4,Burbank Blvd,Sepulveda Blvd,Kester Ave,35,Construction
+4-7,4,Franklin Ave,Cheremoya Ave,Tamarind Ave (north),35,Warning Live
+4-8,4,Fountain Ave,Sunset Bl,Hyperion Ave,35,Construction
+4-9,4,White Oak Ave,Ventura Bl,Margate St,40,Construction
+5-1,5,S La Cienega Blvd,W 18th St,Horner St,35,Construction
+5-2,5,S La Cienega Blvd,W Pico Blvd,W Olympic Blvd,35,Warning Live
+5-3,5,N La Brea Ave,W 1st St,Beverly Blvd,30,Warning Live
+5-4,5,W Olympic Blvd,S La Brea Ave,S Sycamore Ave,35,Warning Live
+5-5,5,N Fairfax Ave,Clinton St,Waring Ave,35,Warning Live
+5-6,5,W Olympic Blvd,Alvira St,Stearns Dr,35,Warning Live
+5-7,5,Melrose Ave,N Hayworth Ave,N Orange Grove Ave,35,Warning Live
+5-8,5,W Olympic Blvd,Greenfield Ave,Purdue Ave,35,Construction
+6-1,6,Nordhoff St,Pacoima Wash,Cedros Ave,35,Construction
+6-2,6,Balboa Blvd,Orange Line Busway,Archwood St,35,Construction
+6-3,6,Victory Blvd,Louise Ave,High Tech Los Angeles East Dwy,45,Construction
+6-4,6,Victory Blvd,Kester Ave,Cedros Ave,35,Warning Live
+6-5,6,Vanowen St,Sepulveda Blvd,Columbus Ave,35,Construction
+6-6,6,Sherman Way,Kester Ave,Sherman Cir (midblock),35,Construction
+6-7,6,Sepulveda Blvd,Stagg St,Saticoy St,35,Construction
+6-8,6,Woodman Ave,Roscoe Bl,Strathern St,35,Construction
+6-9,6,Woodman Ave,Terra Bella St,Nordhoff St,35,Construction
+7-1,7,Sepulveda Blvd,Tupper St,Plummer St,35,Warning Live
+7-2,7,Van Nuys Blvd,5 Fwy,Laurel Canyon Blvd,35,Construction
+7-3,7,Foothill Blvd,Newhome Ave,Sherman Grove Ave,35,Warning Live
+7-4,7,Laurel Canyon Blvd,Pinney St,Hoyt St,40,Construction
+7-5,7,Polk St,Glenoaks Blvd,Fellows Ave (midblock),35,Construction
+7-6,7,Laurel Canyon Blvd,Wolfskill St,Pacoima Wash,40,Construction
+7-7,7,Nordhoff St,Noble Ave,Pacoima Wash,35,Construction
+7-8,7,Van Nuys Blvd,Herrick Ave,De Foe Ave,35,Construction
+8-1,8,W Florence Ave,S Vermont Ave,S Hoover St,35,Warning Live
+8-2,8,S Vermont Ave,W 66th St,W Florence Ave,35,Warning Live
+8-3,8,S Figueroa St,W 85th St,W Manchester Ave,35,Construction
+8-4,8,W Florence Ave,S Van Ness Ave,Haas Ave,35,Construction
+8-5,8,W Gage Ave,S Halldale Ave,Raymond Ave,35,Construction
+8-6,8,S Normandie Ave,W 62nd St,W 64th St,35,Construction
+8-7,8,W Martin Luther King Jr Blvd,S Saint Andrews Pl,S Hobart Blvd,35,Construction
+8-8,8,S Western Ave,W 53rd St,W 55th St,35,Construction
+8-9,8,S Figueroa St,W 67th St,W 68th St (east),35,Construction
+9-1,9,W Slauson Ave,S Budlong Ave,Menlo Ave,35,Construction
+9-2,9,S Vermont Ave,W 57th St,W 58th Pl,35,Construction
+9-3,9,E Manchester Ave,Wadsworth Ave,S Central Ave,35,Construction
+9-4,9,S Figueroa St,W 62nd St,W Gage Ave,35,Construction
+9-5,9,W Gage Ave,S Hoover St,S Figueroa St,35,Construction
+9-6,9,E Vernon Ave,Wadsworth Ave,Hooper Ave,30,Construction
+9-7,9,W Slauson Ave,Brentwood St,Inskeep Ave (midblock),35,Construction
+9-8,9,Avalon Blvd,E 74th St,E 77th St,35,Construction
+9-9,9,S Central Ave,E 91st St (east),E 92nd Ave,35,Construction
+10-1,10,S La Cienega Blvd,3721 La Cienega Bl,Bowesfield St,45,Warning Live
+10-2,10,W Olympic Blvd,Irolo St,Fedora St,35,Construction
+10-3,10,S La Cienega Blvd,Sawyer St,18th St,35,Construction
+10-4,10,W 6th St,S Berendo St,S Vermont Ave,35,Construction
+10-5,10,W Jefferson Blvd,Crenshaw Blvd,S Bronson Ave,35,Construction
+10-6,10,W Washington Blvd,3rd Ave,S Van Ness Ave,35,Construction
+10-7,10,S Western Ave,W 24th St,W Adams Blvd,35,Construction
+10-8,10,S La Brea Ave,Veronica St,Coliseum St,40,Construction
+10-9,10,Arlington Ave,W 21st St,W 18th St,35,Construction
+11-1,11,Venice Blvd,Lincoln Blvd,Pisani Pl,35,Warning Live
+11-2,11,National Blvd,Butler Ave,405 Fwy,35,Warning Live
+11-3,11,S Barrington Ave,Ohio Ave,Santa Monica Blvd,30,Construction
+11-4,11,Washington Blvd,Marr St,Thatcher Ave,35,Construction
+11-5,11,La Tijera Blvd,Manchester Ave,74th St,40,Construction
+11-6,11,Vista Del Mar,City Limit,Culver Bl,40,Construction
+11-7,11,Mulholland Dr,Calneva,Corda,35,Construction
+11-8,11,Slauson Ave,Braddock Dr,Culver Bl,35,Construction
+12-1,12,Balboa Blvd,Lassen St,Plummer St,35,Warning Live
+12-2,12,Balboa Blvd,118 Fwy,Tulsa St,35,Construction
+12-3,12,Nordhoff St,Petit Ave,Gothic Ave,40,Warning Live
+12-4,12,Nordhoff St,Geyser Ave,Yolanda Ave,40,Construction
+12-5,12,Reseda Blvd,Kinzie St,Superior St,35,Construction
+12-6,12,Tampa Ave,Merridy St,Lassen St,40,Construction
+12-7,12,Sesnon Blvd,High Glen Way,Reseda Blvd,45,Construction
+12-8,12,Valley Circle Bl,Victory Bl,Highlander Rd,45,Construction
+13-1,13,N Highland Ave,W Sunset Blvd,Hollywood Blvd,35,Construction
+13-2,13,W Sunset Blvd,N Bronson Ave,101 Fwy,30,Construction
+13-3,13,W Sunset Blvd,Rosemont Ave,N Alvarado St,35,Construction
+13-4,13,W Sunset Blvd,N Sycamore Ave,N McCadden Pl,30,Construction
+13-5,13,Santa Monica Blvd,N Hobart Blvd,N Normandie Ave,35,Warning Live
+13-6,13,Riverside Dr,Riverside Ter,Allesandro St,35,Construction
+13-7,13,3rd St,Virgil Ave,Commonwealth Ave,35,Construction
+13-8,13,N Vermont Ave,Melrose Ave,Marathon St,30,Construction
+14-1,14,E 4th St,S Pecan St,S Boyle Ave,35,Construction
+14-2,14,E 4th St,S Mott Ave,S Evergreen Ave,35,Construction
+14-3,14,S San Pedro St,E 17th St,E 15th St,35,Construction
+14-4,14,S San Pedro St,E 6th St,Winston St,40,Construction
+14-5,14,W 7th St,S Flower St,S Grand Ave,25,Construction
+14-6,14,S Soto St,E 6th St,E 4th St,35,Construction
+14-7,14,Huntington Dr,Topaz St,Monterey Rd,35,Construction
+14-8,14,Marengo St,N Mission Rd,Lord St,35,Construction
+15-1,15,N Avalon Blvd,W Sandison St,E N St,35,Construction
+15-2,15,S Central Ave,E 109th St,E 114th St,35,Construction
+15-3,15,Grandee Ave,E Century Blvd,E 108th St,25,Construction
+15-4,15,E 103rd St,Fifth Blvd (midblock),Grandee Ave,30,Construction
+15-5,15,Wilmington Ave,E 110th St,E 113th St,35,Construction
+15-6,15,S Gaffey St,W 1st St,W 2nd St,35,Warning Live
+15-7,15,Imperial Hwy,Avalon Blvd,Stanford Ave,35,Construction
+15-8,15,Vermont Ave,253rd St,255th St,35,Construction

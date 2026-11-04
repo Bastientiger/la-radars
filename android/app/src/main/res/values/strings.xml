@@ -1,0 +1,118 @@
+<resources>
+    <string name="app_name">LA Radars</string>
+    <string name="subtitle">%1$d LADOT speed cameras · %2$d already live</string>
+
+    <string name="start_trip">Start driving mode</string>
+    <string name="stop_trip">Stop driving mode</string>
+    <string name="state_off">Driving mode off</string>
+    <string name="state_waiting">Waiting for GPS…</string>
+    <string name="state_on">Watching for cameras</string>
+    <string name="speed_unit">mph</string>
+    <string name="hint_idle">Alerts keep working while Google Maps, Waze or music is on screen. Auto-start is in Settings.</string>
+    <string name="hint_running">Alerts are on. You can switch to another app.</string>
+    <string name="hint_need_location">Location permission is required to warn you near a camera.</string>
+    <string name="battery_button">Allow running in background (battery)</string>
+    <string name="map">Map</string>
+    <string name="settings">Settings</string>
+    <string name="back">Back</string>
+
+    <string name="nearest_title">Nearest camera</string>
+    <string name="between">between %1$s and %2$s</string>
+    <string name="limit_label">limit %1$s</string>
+    <string name="status_live">Live</string>
+    <string name="status_construction">Under construction</string>
+    <string name="district_short">CD %1$d</string>
+    <string name="district_n">District %1$d</string>
+    <string name="all_districts">All districts</string>
+    <string name="search_hint">Search a street</string>
+    <string name="open_google_maps">Open in Google Maps</string>
+    <string name="show_on_map">Show on map</string>
+    <string name="map_title">Camera map</string>
+
+    <string name="radius_label">Alert at %1$s</string>
+
+    <string name="report_here">I see the camera here</string>
+    <string name="report_title">Pin the camera</string>
+    <string name="report_message">Save your current position as the exact spot of the %1$s camera? Alerts will use it from now on.</string>
+    <string name="report_confirm">Save</string>
+    <string name="report_saved">Exact spot pinned by you</string>
+    <string name="clear_reports">Forget pinned spots</string>
+    <string name="clear_reports_confirm">Forget all the camera spots you pinned?</string>
+
+    <string name="channel_status">Driving mode</string>
+    <string name="channel_alerts">Camera alerts</string>
+    <string name="channel_alerts_silent">Camera alerts (silent)</string>
+    <string name="status_title">LA Radars is watching</string>
+    <string name="status_waiting_gps">Waiting for GPS signal…</string>
+    <string name="status_nearest">Nearest: %1$s (%2$s)</string>
+    <string name="action_stop">Stop</string>
+
+    <string name="alert_title">Speed camera in %1$s</string>
+    <string name="alert_enter_title">Speed camera zone</string>
+    <string name="alert_passed_title">Camera passed</string>
+    <string name="alert_text">%1$s, between %2$s and %3$s · limit %4$s · %5$s</string>
+    <string name="speech_alert">Speed camera in %1$s. Limit %2$d.</string>
+    <string name="speech_alert_over">Slow down! Speed camera in %1$s. Limit %2$d.</string>
+    <string name="speech_halfway">%1$s.</string>
+    <string name="speech_enter">Camera zone. Limit %1$d.</string>
+    <string name="speech_enter_over">Slow down! Camera zone. Limit %1$d.</string>
+    <string name="speech_passed">Camera passed.</string>
+    <string name="speech_auto_started">LA Radars started.</string>
+
+    <string name="trip_done">Trip finished</string>
+    <string name="trip_summary">%1$d min · %2$s\n%3$d camera zones crossed, speeding in %4$d\nTop speed %5$d %6$s</string>
+    <string name="trips_all">Trip history</string>
+    <string name="trips_title">Trips</string>
+    <string name="trips_empty">No trip recorded yet. Trips are saved when you stop driving mode.</string>
+    <string name="trip_line">%1$d min · %2$s · top speed %3$d %4$s</string>
+    <string name="trip_zone">%1$s: %2$d %3$s (limit %4$s)</string>
+    <string name="trip_no_zones">No camera zone crossed</string>
+    <string name="clear_trips_confirm">Delete all trips?</string>
+    <string name="clear">Clear</string>
+
+    <string name="section_units">Units</string>
+    <string name="units_us">Miles · mph</string>
+    <string name="units_metric">Kilometres · km/h</string>
+    <string name="section_alerts">Alerts</string>
+    <string name="setting_voice">Voice announcements</string>
+    <string name="setting_sound">Sounds</string>
+    <string name="setting_vibration">Vibration</string>
+    <string name="setting_only_live">Only cameras already live</string>
+    <string name="section_auto_start">Auto-start</string>
+    <string name="setting_auto_driving">When driving is detected</string>
+    <string name="setting_auto_bluetooth">When my car\'s Bluetooth connects</string>
+    <string name="choose_device">Choose the car\'s Bluetooth…</string>
+    <string name="device_chosen">Car: %1$s</string>
+    <string name="no_paired_devices">No paired Bluetooth device. Pair your car first in the phone settings.</string>
+    <string name="auto_start_hint">Driving mode will start by itself. Location must be allowed \"all the time\" for that.</string>
+    <string name="auto_start_needs_background">To start by itself, the app needs location \"Allow all the time\".</string>
+    <string name="allow_background_location">Allow location all the time</string>
+    <string name="background_location_title">Location all the time</string>
+    <string name="background_location_explain">On the next screen open Permissions › Location and choose \"Allow all the time\". The app only uses it to start driving mode.</string>
+    <string name="open_settings">Open settings</string>
+
+    <string name="section_data">Camera data &amp; updates</string>
+    <string name="data_bundled">Camera list: built-in (LADOT, Nov 2026)</string>
+    <string name="data_version">Camera list: %1$s</string>
+    <string name="never_checked">Never checked online</string>
+    <string name="last_checked">Last checked: %1$s</string>
+    <string name="checking">Checking…</string>
+    <string name="check_updates">Check for updates</string>
+    <string name="update_failed">Could not check: %1$s</string>
+    <string name="data_updated">Camera list updated (%1$s).</string>
+    <string name="up_to_date">Everything is up to date.</string>
+    <string name="app_update_title">LA Radars %1$s available</string>
+    <string name="app_update_message">Download the new version? Android will then ask you to install it.</string>
+    <string name="app_update_and_data">Camera list updated. A new version of the app is also available: download it? Android will then ask you to install it.</string>
+    <string name="download">Download</string>
+    <string name="later">Later</string>
+    <string name="version_label">LA Radars %1$s</string>
+
+    <string name="section_trips">Trips</string>
+
+    <string name="widget_start">Start driving</string>
+    <string name="widget_stop">Stop driving</string>
+    <string name="widget_description">Start or stop LA Radars driving mode.</string>
+    <string name="shortcut_start_short">Start driving</string>
+    <string name="shortcut_start_long">Start driving mode</string>
+</resources>

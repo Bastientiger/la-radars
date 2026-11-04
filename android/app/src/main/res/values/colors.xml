@@ -1,0 +1,27 @@
+<resources>
+    <!-- Cream background, teal rings from pale edge to near-black centre (see design reference). -->
+    <color name="bg">#F7F7F3</color>
+    <color name="card">#EEF4F4</color>
+    <color name="zone">#134A52</color>
+    <color name="text">#0B1E23</color>
+    <color name="text_on_dark">#F7F7F3</color>
+    <color name="muted">#5E7C82</color>
+    <color name="accent">#26AEB9</color>
+    <color name="live">#1D8E98</color>
+    <color name="go">#0B1E23</color>
+    <color name="stop">#134A52</color>
+    <color name="warn">#E4572E</color>
+
+    <color name="ring0">#E8F1F1</color>
+    <color name="ring1">#D4E9EA</color>
+    <color name="ring2">#BFE2E4</color>
+    <color name="ring3">#A3D9DD</color>
+    <color name="ring4">#7FCDD3</color>
+    <color name="ring5">#4FBEC7</color>
+    <color name="ring6">#26AEB9</color>
+    <color name="ring7">#1D8E98</color>
+    <color name="ring8">#176872</color>
+    <color name="ring9">#134A52</color>
+    <color name="ring10">#10343A</color>
+    <color name="ring11">#0B1E23</color>
+</resources>
