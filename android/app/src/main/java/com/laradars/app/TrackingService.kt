@@ -154,6 +154,7 @@ class TrackingService : Service(), LocationListener {
                 running = true, hasFix = true,
                 lat = location.latitude, lng = location.longitude,
                 speedMps = if (location.hasSpeed()) location.speed else 0f,
+                headingDeg = heading,
                 nearest = update.nearest,
                 speeding = update.speedingIn != null,
             )
@@ -169,18 +170,19 @@ class TrackingService : Service(), LocationListener {
         update.speedingIn?.let { speedingBeep() }
     }
 
-    /** Use the GPS bearing when moving; otherwise derive it from the last two fixes. */
+    /**
+     * Direction of travel: derived from the last two fixes once the car has moved 15 m, and
+     * refined with the GPS bearing when the two agree (a bearing that contradicts the actual
+     * movement, as some receivers report at low speed, is ignored).
+     */
     private fun updateHeading(location: Location) {
-        if (location.hasBearing() && location.hasSpeed() && location.speed > 2f) {
-            heading = location.bearing.toDouble()
-            headingFix = location
-            return
-        }
         val prev = headingFix
         if (prev == null) { headingFix = location; return }
         val moved = Geo.distance(prev.latitude, prev.longitude, location.latitude, location.longitude)
         if (moved >= 15.0) {
-            heading = Geo.bearing(prev.latitude, prev.longitude, location.latitude, location.longitude)
+            val derived = Geo.bearing(prev.latitude, prev.longitude, location.latitude, location.longitude)
+            val gps = if (location.hasBearing() && location.hasSpeed() && location.speed > 2f) location.bearing.toDouble() else null
+            heading = if (gps != null && Geo.angleDiff(gps, derived) < 45.0) gps else derived
             headingFix = location
         } else if (location.time - prev.time > 20_000) {
             heading = null  // stationary for a while: direction unknown

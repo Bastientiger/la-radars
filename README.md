@@ -34,7 +34,12 @@ l'alerte y couvre donc toute la route côtière.
 
 Ensuite tu peux passer sur Google Maps : l'alerte arrive en notification, en vibration et à la voix.
 
-## Fonctionnalités (v1.2)
+## Fonctionnalités (v1.5)
+
+- Écran principal : carte OpenStreetMap en filigrane (gris, cap en haut) centrée sur le conducteur,
+  tronçon du radar le plus proche tracé et étiqueté, cercles translucides qui se resserrent quand le
+  radar approche, vitesse au centre (orange au-dessus de la limite à l'approche, rouge dans la zone).
+- Écran « Fines & rules » (barème AB 645) et liste complète des radars derrière un bouton.
 
 - Alerte seulement si l'on **se dirige vers** le radar (une rue parallèle ne déclenche rien), jamais
   avant la distance réglée (100 m / 350 ft minimum).

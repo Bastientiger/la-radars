@@ -10,13 +10,10 @@ import android.os.Bundle
 import android.os.PowerManager
 import android.provider.Settings
 import android.view.View
-import android.widget.ArrayAdapter
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.widget.doAfterTextChanged
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.laradars.app.databinding.ActivityMainBinding
 import kotlin.math.roundToInt
 
@@ -24,9 +21,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var prefs: Prefs
-    private lateinit var cameras: List<Camera>
-    private lateinit var adapter: CameraAdapter
-    private var pendingAutoStart = false
+    private lateinit var heroMap: HeroMap
 
     private val askPermissions = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { result ->
         val fine = result[Manifest.permission.ACCESS_FINE_LOCATION] == true
@@ -38,12 +33,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         prefs = Prefs(this)
-
-        cameras = CameraRepository.load(this)
-        adapter = CameraAdapter(cameras, Units(prefs.metric)) { showCameraDialog(it) }
-        binding.list.layoutManager = LinearLayoutManager(this)
-        binding.list.adapter = adapter
-        binding.subtitle.text = getString(R.string.subtitle, cameras.size, cameras.count { it.isLive })
+        heroMap = HeroMap(this, binding.heroMap)
 
         binding.radiusSlider.value = prefs.radiusM.toFloat()
         binding.radiusSlider.addOnChangeListener { _, value, _ ->
@@ -60,19 +50,8 @@ class MainActivity : AppCompatActivity() {
         binding.mapButton.setOnClickListener { startActivity(Intent(this, MapActivity::class.java)) }
         binding.infoButton.setOnClickListener { startActivity(Intent(this, InfoActivity::class.java)) }
         binding.settingsButton.setOnClickListener { startActivity(Intent(this, SettingsActivity::class.java)) }
+        binding.allCamerasButton.setOnClickListener { startActivity(Intent(this, CamerasActivity::class.java)) }
         binding.reportButton.setOnClickListener { reportCameraHere() }
-
-        binding.search.doAfterTextChanged { adapter.filter(it?.toString().orEmpty(), districtFilter()) }
-        val districts = listOf(getString(R.string.all_districts)) + (1..15).map { getString(R.string.district_n, it) }
-        binding.district.adapter = ArrayAdapter(this, R.layout.spinner_item, districts).also {
-            it.setDropDownViewResource(R.layout.spinner_dropdown_item)
-        }
-        binding.district.onItemSelectedListener = object : android.widget.AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(p: android.widget.AdapterView<*>?, v: View?, pos: Int, id: Long) {
-                adapter.filter(binding.search.text?.toString().orEmpty(), districtFilter())
-            }
-            override fun onNothingSelected(p: android.widget.AdapterView<*>?) {}
-        }
 
         TrackerState.live.observe(this) { render(it) }
         handleIntent(intent)
@@ -87,27 +66,24 @@ class MainActivity : AppCompatActivity() {
         if (intent?.action == ACTION_START_TRIP && !TrackerState.current.running) ensurePermissionsThenStart()
     }
 
-    private fun districtFilter(): Int = binding.district.selectedItemPosition  // 0 = all
-
     override fun onResume() {
         super.onResume()
+        binding.heroMap.onResume()
         val pm = getSystemService(POWER_SERVICE) as PowerManager
         binding.batteryButton.visibility =
             if (pm.isIgnoringBatteryOptimizations(packageName)) View.GONE else View.VISIBLE
-        // Settings may have changed units or the camera data.
         val units = Units(prefs.metric)
         binding.radiusLabel.text = getString(R.string.radius_label, units.radius(prefs.radiusM))
         binding.speedUnit.text = units.speedUnit
-        val fresh = CameraRepository.load(this)
-        if (fresh !== cameras || adapter.units.metric != units.metric) {
-            cameras = fresh
-            adapter = CameraAdapter(cameras, units) { showCameraDialog(it) }
-            binding.list.adapter = adapter
-            adapter.filter(binding.search.text?.toString().orEmpty(), districtFilter())
-            binding.subtitle.text = getString(R.string.subtitle, cameras.size, cameras.count { it.isLive })
-        }
+        val cameras = CameraRepository.load(this)
+        binding.subtitle.text = getString(R.string.subtitle, cameras.size, cameras.count { it.isLive })
+        binding.allCamerasButton.text = getString(R.string.all_cameras_button, cameras.size)
         render(TrackerState.current)
-        TrackerState.lastTrip?.let { showTripSummary(it); TrackerState.lastTrip = null }
+    }
+
+    override fun onPause() {
+        binding.heroMap.onPause()
+        super.onPause()
     }
 
     private fun ensurePermissionsThenStart() {
@@ -135,30 +111,6 @@ class MainActivity : AppCompatActivity() {
                 prefs.saveReport(n.camera.id, s.lat, s.lng)
                 CameraRepository.invalidate()
                 TrackingService.notifyDataChanged(this)
-                cameras = CameraRepository.load(this)
-                adapter = CameraAdapter(cameras, Units(prefs.metric)) { showCameraDialog(it) }
-                binding.list.adapter = adapter
-            }
-            .setNegativeButton(android.R.string.cancel, null)
-            .show()
-    }
-
-    private fun showCameraDialog(cam: Camera) {
-        val units = Units(prefs.metric)
-        val status = getString(if (cam.isLive) R.string.status_live else R.string.status_construction)
-        val message = getString(R.string.between, cam.from, cam.to) + "\n" +
-            getString(R.string.limit_label, units.limit(cam.speedLimitMph)) + " · " + status +
-            (if (cam.reportLat != null) "\n" + getString(R.string.report_saved) else "")
-        AlertDialog.Builder(this)
-            .setTitle(cam.street)
-            .setMessage(message)
-            .setPositiveButton(R.string.open_google_maps) { _, _ ->
-                val label = Uri.encode("${cam.street} speed camera")
-                val uri = Uri.parse("geo:${cam.midLat},${cam.midLng}?q=${cam.midLat},${cam.midLng}($label)")
-                runCatching { startActivity(Intent(Intent.ACTION_VIEW, uri)) }
-            }
-            .setNeutralButton(R.string.show_on_map) { _, _ ->
-                startActivity(Intent(this, MapActivity::class.java).putExtra(MapActivity.EXTRA_CAMERA_ID, cam.id))
             }
             .setNegativeButton(android.R.string.cancel, null)
             .show()
@@ -182,6 +134,7 @@ class MainActivity : AppCompatActivity() {
     private fun render(s: Snapshot) {
         val units = Units(prefs.metric)
         if (!s.running) TrackerState.lastTrip?.let { showTripSummary(it); TrackerState.lastTrip = null }
+
         binding.toggle.text = getString(if (s.running) R.string.stop_trip else R.string.start_trip)
         binding.toggle.backgroundTintList = ColorStateList.valueOf(
             ContextCompat.getColor(this, if (s.running) R.color.stop else R.color.go)
@@ -196,7 +149,19 @@ class MainActivity : AppCompatActivity() {
         binding.speed.text = if (s.hasFix) units.speed(s.speedMps).toString() else "--"
 
         val n = s.nearest
-        val inZone = s.hasFix && n != null && n.distanceM <= prefs.radiusM
+        val speedMph = (s.speedMps * 2.23694f).roundToInt()
+        val inRadius = s.hasFix && n != null && n.distanceM <= prefs.radiusM
+        val inZone = s.hasFix && n != null && n.distanceM <= 45.0
+        val overLimit = n != null && speedMph > n.camera.speedLimitMph
+
+        // Speed colour: navy normally, amber when over the limit while approaching, red in the zone.
+        val speedColor = when {
+            inZone && overLimit -> R.color.warn
+            inRadius && overLimit -> R.color.amber
+            else -> R.color.text
+        }
+        binding.speed.setTextColor(ContextCompat.getColor(this, speedColor))
+
         if (s.hasFix && n != null) {
             val cam = n.camera
             binding.nearestCard.visibility = View.VISIBLE
@@ -206,26 +171,39 @@ class MainActivity : AppCompatActivity() {
             binding.nearestMeta.text = getString(R.string.limit_label, units.limit(cam.speedLimitMph)) + "  ·  " +
                 getString(if (cam.isLive) R.string.status_live else R.string.status_construction)
             binding.nearestCard.setCardBackgroundColor(
-                ContextCompat.getColor(this, if (inZone) R.color.zone else R.color.card)
+                ContextCompat.getColor(this, if (inRadius) R.color.zone else R.color.card)
             )
-            val fg = ContextCompat.getColor(this, if (inZone) R.color.text_on_dark else R.color.text)
-            val fgMuted = ContextCompat.getColor(this, if (inZone) R.color.ring3 else R.color.muted)
+            val fg = ContextCompat.getColor(this, if (inRadius) R.color.text_on_dark else R.color.text)
+            val fgMuted = ContextCompat.getColor(this, if (inRadius) R.color.ring3 else R.color.muted)
             binding.nearestStreet.setTextColor(fg)
             binding.nearestLabel.setTextColor(fgMuted)
             binding.nearestBetween.setTextColor(fgMuted)
-            binding.nearestMeta.setTextColor(ContextCompat.getColor(this, if (inZone) R.color.ring4 else R.color.live))
-            binding.nearestDistance.setTextColor(ContextCompat.getColor(this, if (inZone) R.color.ring5 else R.color.accent))
+            binding.nearestMeta.setTextColor(ContextCompat.getColor(this, if (inRadius) R.color.ring4 else R.color.live))
+            binding.nearestDistance.setTextColor(ContextCompat.getColor(this, if (inRadius) R.color.ring5 else R.color.accent))
             binding.reportButton.visibility = if (n.distanceM <= 300) View.VISIBLE else View.GONE
-            binding.reportButton.setTextColor(ContextCompat.getColor(this, if (inZone) R.color.ring4 else R.color.live))
-            binding.speed.setTextColor(ContextCompat.getColor(this, if (s.speeding) R.color.warn else R.color.text_on_dark))
-            adapter.updatePosition(s.lat, s.lng)
+            binding.reportButton.setTextColor(ContextCompat.getColor(this, if (inRadius) R.color.ring4 else R.color.live))
+
+            binding.limitBadge.visibility = if (inRadius) View.VISIBLE else View.GONE
+            binding.limitBadge.text = getString(R.string.limit_badge, cam.speedLimitMph)
+            binding.limitBadge.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this, speedColor))
+            binding.limitBadge.setTextColor(
+                ContextCompat.getColor(this, if (speedColor == R.color.amber) R.color.text else R.color.text_on_dark)
+            )
+
+            binding.heroMap.visibility = View.VISIBLE
+            heroMap.update(s.lat, s.lng, s.headingDeg, cam, n.distanceM)
+            binding.pulse.targetScale = PulseView.scaleForDistance(n.distanceM)
+            binding.pulse.showArrow = true
         } else {
             binding.nearestCard.visibility = View.GONE
-            binding.speed.setTextColor(ContextCompat.getColor(this, R.color.text_on_dark))
+            binding.limitBadge.visibility = View.GONE
+            binding.heroMap.visibility = View.INVISIBLE
+            binding.pulse.targetScale = 1f
+            binding.pulse.showArrow = false
         }
         binding.pulse.periodMs = when {
             !s.running -> 6000L
-            inZone -> 2000L
+            inRadius -> 2000L
             else -> 4000L
         }
         binding.pulse.intensity = if (s.running) 1f else 0.5f

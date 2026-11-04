@@ -11,6 +11,7 @@
     <color name="go">#0B1E23</color>
     <color name="stop">#134A52</color>
     <color name="warn">#E4572E</color>
+    <color name="amber">#F5A524</color>
 
     <color name="ring0">#E8F1F1</color>
     <color name="ring1">#D4E9EA</color>

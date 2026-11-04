@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">LA Radars</string>
-    <string name="subtitle">%1$d LADOT speed cameras · %2$d already live</string>
+    <string name="subtitle">%1$d LADOT cameras · %2$d live</string>
 
     <string name="start_trip">Start driving mode</string>
     <string name="stop_trip">Stop driving mode</string>
@@ -13,6 +13,9 @@
     <string name="hint_need_location">Location permission is required to warn you near a camera.</string>
     <string name="battery_button">Allow running in background (battery)</string>
     <string name="map">Map</string>
+    <string name="all_cameras_button">All %1$d cameras</string>
+    <string name="all_cameras_title">All cameras</string>
+    <string name="limit_badge">LIMIT %1$d</string>
     <string name="info">Fines &amp; rules</string>
     <string name="info_title">Fines &amp; rules</string>
     <string name="info_status_line">Today: %1$d cameras live, %2$d still under construction. LADOT plans to have all 125 running by the end of 2026; this app refreshes the list from LADOT every day.</string>

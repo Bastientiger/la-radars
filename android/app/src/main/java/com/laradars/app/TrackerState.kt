@@ -10,6 +10,7 @@ data class Snapshot(
     val lat: Double = 0.0,
     val lng: Double = 0.0,
     val speedMps: Float = 0f,
+    val headingDeg: Double? = null,
     val nearest: AlertEngine.Nearest? = null,
     val speeding: Boolean = false,
 )
