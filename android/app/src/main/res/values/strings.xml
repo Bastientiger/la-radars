@@ -28,6 +28,9 @@
     <string name="open_google_maps">Open in Google Maps</string>
     <string name="show_on_map">Show on map</string>
     <string name="map_title">Camera map</string>
+    <string name="legend_live">Live camera (tickets after a 60-day warning period)</string>
+    <string name="legend_soon">Under construction (not yet active)</string>
+    <string name="legend_me">You (while driving mode is on)</string>
 
     <string name="radius_label">Alert at %1$s</string>
 

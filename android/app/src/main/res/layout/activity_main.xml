@@ -245,7 +245,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:valueFrom="200"
+            android:valueFrom="100"
             android:valueTo="1000"
             android:stepSize="50"
             app:thumbColor="@color/live"

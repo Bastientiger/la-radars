@@ -49,7 +49,15 @@ object DataUpdater {
                     val json = get(m.dataUrl)
                     val cams = CameraRepository.parse(json)
                     if (cams.size < 50) throw IllegalStateException("data looks truncated (${cams.size} cameras)")
-                    CameraRepository.dataFile(app).writeText(json)
+                    // Write to a temporary file, flush to disk, then rename: the data file is
+                    // either the old complete version or the new complete version, never half.
+                    val target = CameraRepository.dataFile(app)
+                    val tmp = java.io.File(target.parentFile, target.name + ".tmp")
+                    java.io.FileOutputStream(tmp).use { out ->
+                        out.write(json.toByteArray())
+                        out.fd.sync()
+                    }
+                    if (!tmp.renameTo(target)) throw IllegalStateException("could not save the camera list")
                     CameraRepository.invalidate()
                     prefs.dataVersion = m.dataVersion
                     updated = true

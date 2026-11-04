@@ -37,7 +37,7 @@ Ensuite tu peux passer sur Google Maps : l'alerte arrive en notification, en vib
 ## Fonctionnalités (v1.2)
 
 - Alerte seulement si l'on **se dirige vers** le radar (une rue parallèle ne déclenche rien), jamais
-  avant la distance réglée (200 m / 650 ft minimum).
+  avant la distance réglée (100 m / 350 ft minimum).
 - Séquence vocale : approche → mi-distance → « Camera zone » → « Camera passed ». Bips répétés tant
   qu'on roule à plus de 10 mph au-dessus de la limite dans la zone.
 - Réglages : miles ou kilomètres, voix / son / vibration, radars actifs seulement.

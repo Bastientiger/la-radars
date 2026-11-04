@@ -105,10 +105,20 @@ object CameraRepository {
     fun load(context: Context): List<Camera> {
         cache?.let { return it }
         val file = dataFile(context)
-        val json = if (file.exists()) file.readText()
-        else context.assets.open("cameras.json").bufferedReader().use { it.readText() }
+        var parsed: List<Camera>? = null
+        if (file.exists()) {
+            // A truncated or corrupt download must never keep the app from starting.
+            parsed = runCatching { parse(file.readText()) }.getOrNull()?.takeIf { it.size >= 50 }
+            if (parsed == null) {
+                file.delete()
+                Prefs(context).dataVersion = ""
+            }
+        }
+        if (parsed == null) {
+            parsed = parse(context.assets.open("cameras.json").bufferedReader().use { it.readText() })
+        }
         val reports = Prefs(context).reports()
-        val list = parse(json).map { c ->
+        val list = parsed.map { c ->
             reports[c.id]?.let { r -> c.copy(reportLat = r[0], reportLng = r[1]) } ?: c
         }
         cache = list
