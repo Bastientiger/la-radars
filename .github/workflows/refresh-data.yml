@@ -1,0 +1,33 @@
+name: Refresh camera data from LADOT
+
+on:
+  schedule:
+    - cron: "17 14 * * *"   # every day at 14:17 UTC (06:17 Los Angeles time)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install pdftotext
+        run: sudo apt-get update -q && sudo apt-get install -y -q poppler-utils
+
+      - name: Re-read the LADOT PDFs and update the data
+        id: refresh
+        run: |
+          python3 -I data/refresh.py | tee refresh.log
+          if grep -q DATA_UPDATED refresh.log; then echo "updated=true" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Commit and push when something changed
+        if: steps.refresh.outputs.updated == 'true'
+        run: |
+          git config user.name "la-radars-bot"
+          git config user.email "la-radars-bot@users.noreply.github.com"
+          git add data/cameras.csv data/cameras.json data/manifest.json
+          git commit -m "data: LADOT camera statuses $(date -u +%F)"
+          git push

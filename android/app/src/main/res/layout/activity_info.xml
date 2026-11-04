@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:fitsSystemWindows="true">
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingHorizontal="24dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="32dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="-12dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/back"
+            android:src="@drawable/ic_back"
+            app:tint="@color/text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/info_title"
+            android:textColor="@color/text"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/statusLine"
+        style="@style/InfoBody"
+        android:layout_marginTop="8dp" />
+
+    <TextView style="@style/SectionTitle" android:text="@string/info_fines_title" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/card"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout style="@style/FineRow">
+                <TextView style="@style/FineOver" android:text="@string/fine_tier1_over" />
+                <TextView style="@style/FineAmount" android:text="@string/fine_tier1_amount" />
+            </LinearLayout>
+            <TextView style="@style/FineNote" android:text="@string/fine_tier1_note" />
+
+            <LinearLayout style="@style/FineRow">
+                <TextView style="@style/FineOver" android:text="@string/fine_tier2_over" />
+                <TextView style="@style/FineAmount" android:text="@string/fine_tier2_amount" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/FineRow">
+                <TextView style="@style/FineOver" android:text="@string/fine_tier3_over" />
+                <TextView style="@style/FineAmount" android:text="@string/fine_tier3_amount" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/FineRow">
+                <TextView style="@style/FineOver" android:text="@string/fine_tier4_over" />
+                <TextView style="@style/FineAmount" android:text="@string/fine_tier4_amount" />
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView style="@style/InfoBody" android:text="@string/info_fines_body" />
+
+    <TextView style="@style/SectionTitle" android:text="@string/info_warning_title" />
+    <TextView style="@style/InfoBody" android:text="@string/info_warning_body" />
+
+    <TextView style="@style/SectionTitle" android:text="@string/info_who_title" />
+    <TextView style="@style/InfoBody" android:text="@string/info_who_body" />
+
+    <TextView style="@style/SectionTitle" android:text="@string/info_reduction_title" />
+    <TextView style="@style/InfoBody" android:text="@string/info_reduction_body" />
+
+    <TextView style="@style/SectionTitle" android:text="@string/info_program_title" />
+    <TextView style="@style/InfoBody" android:text="@string/info_program_body" />
+
+    <Button
+        android:id="@+id/ladotLink"
+        style="@style/Widget.Material3.Button.TonalButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/info_ladot_link"
+        app:backgroundTint="@color/ring1" />
+
+    <TextView
+        style="@style/SettingHint"
+        android:layout_marginTop="16dp"
+        android:text="@string/info_disclaimer" />
+</LinearLayout>
+</ScrollView>
+</FrameLayout>

@@ -58,6 +58,7 @@ class MainActivity : AppCompatActivity() {
         }
         binding.batteryButton.setOnClickListener { requestIgnoreBatteryOptimizations() }
         binding.mapButton.setOnClickListener { startActivity(Intent(this, MapActivity::class.java)) }
+        binding.infoButton.setOnClickListener { startActivity(Intent(this, InfoActivity::class.java)) }
         binding.settingsButton.setOnClickListener { startActivity(Intent(this, SettingsActivity::class.java)) }
         binding.reportButton.setOnClickListener { reportCameraHere() }
 
