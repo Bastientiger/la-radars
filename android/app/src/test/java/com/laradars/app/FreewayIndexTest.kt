@@ -12,6 +12,7 @@ class FreewayIndexTest {
     fun drivingAlongTheFreewayCounts() {
         assertTrue(index.isOnFreeway(34.0650, -118.2600, 0.0, 65))     // northbound, on the line
         assertTrue(index.isOnFreeway(34.0650, -118.26012, 180.0, 30)) // southbound, 11 m off, any speed
+        assertTrue(index.isOnFreeway(34.0650, -118.26015, 0.0, 0))    // stuck in traffic, 14 m off, 0 mph
     }
 
     @Test

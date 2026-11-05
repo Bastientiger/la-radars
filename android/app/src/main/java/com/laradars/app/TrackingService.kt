@@ -215,6 +215,8 @@ class TrackingService : Service(), LocationListener {
      * fixes away from one to leave it, so an overpass or GPS jitter does not flip it.
      */
     private fun updateFreeway(lat: Double, lng: Double, speedMph: Int) {
+        // Stopped in traffic (direction unknown): keep whatever state we were in.
+        if (heading == null) return
         val match = freeways?.isOnFreeway(lat, lng, heading, speedMph) ?: false
         freewayVotes = if (match) minOf(3, freewayVotes + 1) else maxOf(-3, freewayVotes - 1)
         android.util.Log.d(TAG, "fwy heading=${heading?.toInt()} closest=${freeways?.lastClosestM?.toInt()}m speed=$speedMph match=$match votes=$freewayVotes")

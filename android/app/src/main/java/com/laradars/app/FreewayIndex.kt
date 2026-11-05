@@ -67,7 +67,8 @@ class FreewayIndex(private val segments: List<Seg>) {
         private set
 
     companion object {
-        const val ON_LINE_M = 15.0
+        /** Half of a five-lane carriageway plus GPS error: on the line at any speed, jam included. */
+        const val ON_LINE_M = 18.0
         const val NEAR_M = 35.0
         const val FREEWAY_SPEED_MPH = 50
         const val ALIGN_DEG = 30.0

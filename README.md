@@ -46,7 +46,7 @@ Ensuite tu peux passer sur Google Maps : l'alerte arrive en notification, en vib
 - Mode autoroute : aucun radar n'est sur une autoroute (AB 645 ne vise que les rues de la ville),
   mais plusieurs tronçons passent sous ou le long d'une autoroute. L'app embarque le tracé des
   autoroutes (`data/freeways.json`, OpenStreetMap, régénéré par `data/freeways.py`) et met les
-  alertes en sourdine quand on roule dessus (à moins de 15 m de l'axe dans le sens de la voie, ou
+  alertes en sourdine quand on roule dessus (à moins de 18 m de l'axe dans le sens de la voie, arrêt compris, ou
   à moins de 35 m à 50 mph et plus, pendant 3 relevés consécutifs).
 
 - Alerte seulement si l'on **se dirige vers** le radar (une rue parallèle ne déclenche rien), jamais
