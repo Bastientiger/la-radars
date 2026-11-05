@@ -70,6 +70,13 @@
         <item name="android:layout_marginBottom">4dp</item>
     </style>
 
+    <style name="OnbDot">
+        <item name="android:layout_width">22dp</item>
+        <item name="android:layout_height">4dp</item>
+        <item name="android:layout_marginEnd">6dp</item>
+        <item name="android:background">@color/ring1</item>
+    </style>
+
     <style name="SettingHint">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>

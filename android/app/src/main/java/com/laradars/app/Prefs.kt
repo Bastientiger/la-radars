@@ -28,6 +28,10 @@ class Prefs(context: Context) {
         get() = p.getBoolean("vibration", true)
         set(v) = p.edit().putBoolean("vibration", v).apply()
 
+    var onboardingDone: Boolean
+        get() = p.getBoolean("onboarding_done", false)
+        set(v) = p.edit().putBoolean("onboarding_done", v).apply()
+
     var banner: Boolean
         get() = p.getBoolean("banner", true)
         set(v) = p.edit().putBoolean("banner", v).apply()

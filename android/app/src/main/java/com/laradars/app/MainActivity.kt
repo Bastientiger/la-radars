@@ -34,6 +34,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         prefs = Prefs(this)
         heroMap = HeroMap(this, binding.heroMap)
+        if (!prefs.onboardingDone && intent?.action != ACTION_START_TRIP) {
+            startActivity(Intent(this, OnboardingActivity::class.java))
+        }
 
         binding.radiusSlider.value = prefs.radiusM.toFloat()
         binding.radiusSlider.addOnChangeListener { _, value, _ ->
@@ -97,8 +100,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun startTrip() {
         TrackingService.start(this)
-        // First trip: offer the alert bar over other apps, which needs a one-time permission.
-        if (prefs.banner && !AlertBanner.canDraw(this) && !prefs.bannerAsked) {
+        // The tour already covered the bar; this is for people who skipped it.
+        if (prefs.banner && !AlertBanner.canDraw(this) && !prefs.bannerAsked && prefs.onboardingDone) {
             prefs.bannerAsked = true
             AlertDialog.Builder(this)
                 .setTitle(R.string.banner_permission_title)

@@ -37,6 +37,8 @@ class SettingsActivity : AppCompatActivity() {
         setContentView(b.root)
         prefs = Prefs(this)
         b.back.setOnClickListener { finish() }
+        b.permissions.setOnClickListener { startActivity(Intent(this, PermissionsActivity::class.java)) }
+        b.tour.setOnClickListener { startActivity(Intent(this, OnboardingActivity::class.java)) }
 
         b.unitsGroup.setOnCheckedChangeListener { _, id ->
             prefs.metric = id == R.id.unitsMetric
@@ -46,15 +48,16 @@ class SettingsActivity : AppCompatActivity() {
         b.sound.setOnCheckedChangeListener { _, on -> prefs.sound = on }
         b.vibration.setOnCheckedChangeListener { _, on -> prefs.vibration = on }
         b.onlyLive.setOnCheckedChangeListener { _, on -> prefs.onlyLive = on; TrackingService.notifySettingsChanged(this) }
-        b.banner.setOnCheckedChangeListener { _, on ->
+        b.banner.setOnCheckedChangeListener { v, on ->
             prefs.banner = on
-            if (on && !AlertBanner.canDraw(this)) MainActivity.openOverlaySettings(this)
+            // Only on a real tap: refresh() also sets the switch, and must not open system pages.
+            if (on && v.isPressed && !AlertBanner.canDraw(this)) MainActivity.openOverlaySettings(this)
             refresh()
         }
         b.bannerPermission.setOnClickListener { MainActivity.openOverlaySettings(this) }
 
-        b.autoDriving.setOnCheckedChangeListener { _, on ->
-            if (on && !AutoStart.hasActivityPermission(this) && Build.VERSION.SDK_INT >= 29) {
+        b.autoDriving.setOnCheckedChangeListener { v, on ->
+            if (on && v.isPressed && !AutoStart.hasActivityPermission(this) && Build.VERSION.SDK_INT >= 29) {
                 askActivity.launch(Manifest.permission.ACTIVITY_RECOGNITION)
             } else {
                 prefs.autoStartDriving = on
@@ -62,9 +65,9 @@ class SettingsActivity : AppCompatActivity() {
                 refresh()
             }
         }
-        b.autoBluetooth.setOnCheckedChangeListener { _, on ->
+        b.autoBluetooth.setOnCheckedChangeListener { v, on ->
             prefs.autoStartBluetooth = on
-            if (on && prefs.bluetoothDevice.isEmpty()) ensureBluetoothThenChoose()
+            if (on && v.isPressed && prefs.bluetoothDevice.isEmpty()) ensureBluetoothThenChoose()
             refresh()
         }
         b.chooseDevice.setOnClickListener { ensureBluetoothThenChoose() }

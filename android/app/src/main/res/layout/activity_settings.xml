@@ -43,6 +43,22 @@
             android:textStyle="bold" />
     </LinearLayout>
 
+    <TextView style="@style/SectionTitle" android:text="@string/section_setup" />
+    <Button
+        android:id="@+id/permissions"
+        style="@style/Widget.Material3.Button.TonalButton"
+        app:backgroundTint="@color/ring1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/settings_permissions" />
+    <Button
+        android:id="@+id/tour"
+        style="@style/Widget.Material3.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/settings_tour"
+        android:textColor="@color/live" />
+
     <TextView style="@style/SectionTitle" android:text="@string/section_units" />
     <RadioGroup
         android:id="@+id/unitsGroup"

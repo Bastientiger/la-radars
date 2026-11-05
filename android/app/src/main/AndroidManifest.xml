@@ -48,6 +48,8 @@
         <activity android:name=".TripsActivity" android:exported="false" />
         <activity android:name=".InfoActivity" android:exported="false" />
         <activity android:name=".CamerasActivity" android:exported="false" />
+        <activity android:name=".OnboardingActivity" android:exported="false" />
+        <activity android:name=".PermissionsActivity" android:exported="false" />
 
         <service
             android:name=".TrackingService"

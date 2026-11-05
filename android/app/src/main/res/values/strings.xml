@@ -151,6 +151,59 @@
 
     <string name="section_trips">Trips</string>
 
+    <!-- Onboarding tour -->
+    <string name="onb_step0_label">Welcome</string>
+    <string name="onb_step0_title">125 speed cameras. One app that sees them first.</string>
+    <string name="onb_step0_body">LA Radars warns you before each of Los Angeles\' speed safety cameras, even while Google Maps or Waze is on screen. Four quick steps and it\'s ready.</string>
+    <string name="onb_step0_button">Let\'s set it up</string>
+    <string name="onb_step0_skip">Takes about a minute</string>
+    <string name="onb_step1_label">Step 1 of 4 · Location</string>
+    <string name="onb_step1_title">Where you are is the whole point.</string>
+    <string name="onb_step1_body">The app compares your position with the 125 camera segments, once a second, on the phone only. Nothing is sent anywhere.</string>
+    <string name="onb_step1_why">Why \"all the time\"? So the app can start by itself when you drive. On the next screen choose \"Allow all the time\".</string>
+    <string name="onb_step2_label">Step 2 of 4 · Alerts</string>
+    <string name="onb_step2_title">Big, loud, and on top of any app.</string>
+    <string name="onb_step2_body">Alerts come as a voice, a sound, a vibration, and a bar with the distance drawn over whatever app you\'re using.</string>
+    <string name="onb_preview_bar">SPEED CAMERA · BEVERLY BLVD · LIMIT 35</string>
+    <string name="onb_step3_label">Step 3 of 4 · Always ready</string>
+    <string name="onb_step3_title">Never think about it again.</string>
+    <string name="onb_step3_body">Let the phone keep the GPS running on long drives, and pick how driving mode should start by itself.</string>
+    <string name="onb_step3_button">See the checklist</string>
+    <string name="onb_step4_label">Step 4 of 4 · Checklist</string>
+    <string name="onb_continue">Continue</string>
+    <string name="onb_skip">Skip for now</string>
+
+    <string name="perm_location">Precise location</string>
+    <string name="perm_location_sub">while using the app</string>
+    <string name="perm_background">Location all the time</string>
+    <string name="perm_background_sub">for auto-start</string>
+    <string name="perm_notifications">Notifications</string>
+    <string name="perm_notifications_sub">alerts and driving-mode status</string>
+    <string name="perm_overlay">Display over other apps</string>
+    <string name="perm_overlay_sub">the alert bar over Google Maps</string>
+    <string name="perm_battery">Run in background</string>
+    <string name="perm_battery_sub">stops Samsung / Xiaomi from cutting the GPS</string>
+    <string name="perm_driving">Start when driving is detected</string>
+    <string name="perm_driving_sub">uses the phone\'s motion sensors</string>
+    <string name="perm_bluetooth">Start with my car\'s Bluetooth</string>
+    <string name="perm_bluetooth_sub">choose your car once</string>
+    <string name="perm_optional_sub">optional</string>
+    <string name="perm_allow">ALLOW</string>
+    <string name="perm_done">✓ DONE</string>
+    <string name="perm_on">ON</string>
+    <string name="perm_optional">OPTIONAL</string>
+
+    <string name="perms_title">Permissions</string>
+    <string name="perms_title_onboarding">Almost there.</string>
+    <string name="perms_body">Everything green works fully. You can come back to this list anytime from Settings › Permissions.</string>
+    <string name="perms_all_good">Everything is on. The app works fully.</string>
+    <string name="perms_done">Done</string>
+    <string name="perms_skip_ok">Open the app</string>
+    <string name="perms_skip_missing">Finish without the missing ones</string>
+    <string name="settings_permissions">Permissions checklist</string>
+    <string name="settings_tour">Show the welcome tour again</string>
+    <string name="section_setup">Setup</string>
+
     <string name="widget_start">Start driving</string>
     <string name="widget_stop">Stop driving</string>
     <string name="widget_description">Start or stop LA Radars driving mode.</string>
