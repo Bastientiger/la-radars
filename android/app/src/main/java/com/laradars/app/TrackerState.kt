@@ -20,6 +20,9 @@ object TrackerState {
     val live: LiveData<Snapshot> get() = mutable
     val current: Snapshot get() = mutable.value ?: Snapshot()
 
+    /** True while the main screen is in front: the overlay banner is then redundant. */
+    @Volatile var appVisible: Boolean = false
+
     /** Set when a trip ends, so the screen can show its summary once. */
     @Volatile var lastTrip: Trip? = null
 

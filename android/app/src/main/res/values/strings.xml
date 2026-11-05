@@ -108,6 +108,12 @@
     <string name="setting_sound">Sounds</string>
     <string name="setting_vibration">Vibration</string>
     <string name="setting_only_live">Only cameras already live</string>
+    <string name="setting_banner">Big alert bar over other apps</string>
+    <string name="banner_permission_button">Allow the bar over other apps</string>
+    <string name="banner_permission_title">Alert bar over Google Maps</string>
+    <string name="banner_permission_explain">When a camera is ahead, LA Radars can show a big orange bar with the distance on top of whatever app you are using. Android needs you to allow \"Display over other apps\" once. The bar only appears during an alert.</string>
+    <string name="allow">Allow</string>
+    <string name="banner_street">Speed camera · %1$s · limit %2$d</string>
     <string name="section_auto_start">Auto-start</string>
     <string name="setting_auto_driving">When driving is detected</string>
     <string name="setting_auto_bluetooth">When my car\'s Bluetooth connects</string>

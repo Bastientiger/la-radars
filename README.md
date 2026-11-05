@@ -40,6 +40,9 @@ Ensuite tu peux passer sur Google Maps : l'alerte arrive en notification, en vib
   tronçon du radar le plus proche tracé et étiqueté, cercles translucides qui se resserrent quand le
   radar approche, vitesse au centre (orange au-dessus de la limite à l'approche, rouge dans la zone).
 - Écran « Fines & rules » (barème AB 645) et liste complète des radars derrière un bouton.
+- Barre d'alerte dessinée par-dessus l'appli en cours (Google Maps, Waze…) pendant l'alerte :
+  distance en gros qui décompte, orange à l'approche, rouge tout près ou en excès de vitesse.
+  Nécessite l'autorisation « Afficher par-dessus d'autres applis » (demandée au premier trajet).
 
 - Alerte seulement si l'on **se dirige vers** le radar (une rue parallèle ne déclenche rien), jamais
   avant la distance réglée (100 m / 350 ft minimum).

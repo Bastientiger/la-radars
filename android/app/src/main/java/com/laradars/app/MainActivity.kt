@@ -68,6 +68,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        TrackerState.appVisible = true
         binding.heroMap.onResume()
         val pm = getSystemService(POWER_SERVICE) as PowerManager
         binding.batteryButton.visibility =
@@ -82,6 +83,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onPause() {
+        TrackerState.appVisible = false
         binding.heroMap.onPause()
         super.onPause()
     }
@@ -93,7 +95,19 @@ class MainActivity : AppCompatActivity() {
         if (missing.isEmpty()) startTrip() else askPermissions.launch(missing.toTypedArray())
     }
 
-    private fun startTrip() = TrackingService.start(this)
+    private fun startTrip() {
+        TrackingService.start(this)
+        // First trip: offer the alert bar over other apps, which needs a one-time permission.
+        if (prefs.banner && !AlertBanner.canDraw(this) && !prefs.bannerAsked) {
+            prefs.bannerAsked = true
+            AlertDialog.Builder(this)
+                .setTitle(R.string.banner_permission_title)
+                .setMessage(R.string.banner_permission_explain)
+                .setPositiveButton(R.string.allow) { _, _ -> openOverlaySettings(this) }
+                .setNegativeButton(R.string.later, null)
+                .show()
+        }
+    }
 
     private fun requestIgnoreBatteryOptimizations() {
         val intent = Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS, Uri.parse("package:$packageName"))
@@ -212,5 +226,10 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         const val ACTION_START_TRIP = "com.laradars.app.START_TRIP"
+
+        fun openOverlaySettings(activity: AppCompatActivity) {
+            val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:${activity.packageName}"))
+            runCatching { activity.startActivity(intent) }
+        }
     }
 }

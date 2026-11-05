@@ -28,6 +28,14 @@ class Prefs(context: Context) {
         get() = p.getBoolean("vibration", true)
         set(v) = p.edit().putBoolean("vibration", v).apply()
 
+    var banner: Boolean
+        get() = p.getBoolean("banner", true)
+        set(v) = p.edit().putBoolean("banner", v).apply()
+
+    var bannerAsked: Boolean
+        get() = p.getBoolean("banner_asked", false)
+        set(v) = p.edit().putBoolean("banner_asked", v).apply()
+
     var onlyLive: Boolean
         get() = p.getBoolean("only_live", false)
         set(v) = p.edit().putBoolean("only_live", v).apply()

@@ -58,6 +58,15 @@
     <com.google.android.material.materialswitch.MaterialSwitch android:id="@+id/sound" style="@style/SettingSwitch" android:text="@string/setting_sound" />
     <com.google.android.material.materialswitch.MaterialSwitch android:id="@+id/vibration" style="@style/SettingSwitch" android:text="@string/setting_vibration" />
     <com.google.android.material.materialswitch.MaterialSwitch android:id="@+id/onlyLive" style="@style/SettingSwitch" android:text="@string/setting_only_live" />
+    <com.google.android.material.materialswitch.MaterialSwitch android:id="@+id/banner" style="@style/SettingSwitch" android:text="@string/setting_banner" />
+    <Button
+        android:id="@+id/bannerPermission"
+        style="@style/Widget.Material3.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/banner_permission_button"
+        app:backgroundTint="@color/live"
+        android:visibility="gone" />
 
     <TextView style="@style/SectionTitle" android:text="@string/section_auto_start" />
     <com.google.android.material.materialswitch.MaterialSwitch android:id="@+id/autoDriving" style="@style/SettingSwitch" android:text="@string/setting_auto_driving" />

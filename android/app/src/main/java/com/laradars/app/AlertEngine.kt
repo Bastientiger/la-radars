@@ -95,6 +95,10 @@ class AlertEngine(
         return d * Math.sin(Math.toRadians(theta)) <= LATERAL_M
     }
 
+    /** True from the first alert for this camera until it is passed. */
+    fun isAlerting(cameraId: String): Boolean =
+        stage[cameraId].let { it == Stage.APPROACHED || it == Stage.HALFWAY || it == Stage.INSIDE }
+
     fun reset() = stage.clear()
 
     companion object {

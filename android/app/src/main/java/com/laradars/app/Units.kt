@@ -33,6 +33,15 @@ class Units(val metric: Boolean) {
         if (ft >= 1000) fmt("%.1f mi", ft / 5280.0) else "$ft ft"
     }
 
+    /** Live countdown for the banner: 10 m / 50 ft steps. */
+    fun distanceLive(m: Double): String = if (metric) {
+        val r = ((m / 10).roundToInt() * 10).coerceAtLeast(0)
+        if (r >= 1000) fmt("%.1f km", r / 1000.0) else "$r m"
+    } else {
+        val ft = ((m * 3.28084 / 50).roundToInt() * 50).coerceAtLeast(0)
+        if (ft >= 1000) fmt("%.1f mi", ft / 5280.0) else "$ft ft"
+    }
+
     /** Spoken form, e.g. "350 metres", "a quarter mile". */
     fun spokenDistance(m: Double): String = if (metric) {
         val r = ((m / 50).roundToInt() * 50).coerceAtLeast(50)

@@ -46,6 +46,12 @@ class SettingsActivity : AppCompatActivity() {
         b.sound.setOnCheckedChangeListener { _, on -> prefs.sound = on }
         b.vibration.setOnCheckedChangeListener { _, on -> prefs.vibration = on }
         b.onlyLive.setOnCheckedChangeListener { _, on -> prefs.onlyLive = on; TrackingService.notifySettingsChanged(this) }
+        b.banner.setOnCheckedChangeListener { _, on ->
+            prefs.banner = on
+            if (on && !AlertBanner.canDraw(this)) MainActivity.openOverlaySettings(this)
+            refresh()
+        }
+        b.bannerPermission.setOnClickListener { MainActivity.openOverlaySettings(this) }
 
         b.autoDriving.setOnCheckedChangeListener { _, on ->
             if (on && !AutoStart.hasActivityPermission(this) && Build.VERSION.SDK_INT >= 29) {
@@ -89,6 +95,8 @@ class SettingsActivity : AppCompatActivity() {
         b.sound.isChecked = prefs.sound
         b.vibration.isChecked = prefs.vibration
         b.onlyLive.isChecked = prefs.onlyLive
+        b.banner.isChecked = prefs.banner
+        b.bannerPermission.visibility = if (prefs.banner && !AlertBanner.canDraw(this)) View.VISIBLE else View.GONE
         b.autoDriving.isChecked = prefs.autoStartDriving
         b.autoBluetooth.isChecked = prefs.autoStartBluetooth
         b.chooseDevice.visibility = if (prefs.autoStartBluetooth) View.VISIBLE else View.GONE

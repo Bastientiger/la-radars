@@ -48,6 +48,7 @@ class TrackingService : Service(), LocationListener {
     private var recorder: TripRecorder? = null
     private var lastBeepMs = 0L
     private var tone: ToneGenerator? = null
+    private val banner by lazy { AlertBanner(this) }
 
     override fun onCreate() {
         super.onCreate()
@@ -126,6 +127,7 @@ class TrackingService : Service(), LocationListener {
         locationManager.removeUpdates(this)
         wakeLock?.let { if (it.isHeld) it.release() }
         wakeLock = null
+        banner.reset()
         recorder?.let { r ->
             val trip = r.finish()
             if (trip.durationMin >= 1 || trip.zones.isNotEmpty()) TripStore.add(this, trip)
@@ -168,6 +170,23 @@ class TrackingService : Service(), LocationListener {
 
         update.alerts.forEach { alert(it, speedMph) }
         update.speedingIn?.let { speedingBeep() }
+        updateBanner(update, speedMph)
+    }
+
+    /** The bar over other apps: shown from the first alert until the camera is passed. */
+    private fun updateBanner(update: AlertEngine.Update, speedMph: Int) {
+        val n = update.nearest
+        val active = n != null && engine.isAlerting(n.camera.id) && prefs.banner && !TrackerState.appVisible
+        if (!active || n == null) {
+            banner.hide()
+            if (update.alerts.any { it.event == AlertEngine.Event.PASSED }) banner.reset()
+            return
+        }
+        val danger = n.distanceM <= 60.0 || speedMph > n.camera.speedLimitMph
+        banner.show(
+            n.camera.id, units.distanceLive(n.distanceM),
+            getString(R.string.banner_street, n.camera.street, n.camera.speedLimitMph), danger,
+        )
     }
 
     /**
@@ -208,19 +227,26 @@ class TrackingService : Service(), LocationListener {
         }
 
         if (a.event == AlertEngine.Event.APPROACH || a.event == AlertEngine.Event.ENTER) {
+            // With the bar drawn over the screen, the system's own pop-up would only cover it:
+            // keep the notification quiet in the shade and play the sound ourselves.
+            val barOnScreen = prefs.banner && AlertBanner.canDraw(this) && !TrackerState.appVisible
             val text = getString(R.string.alert_text, cam.street, cam.from, cam.to, units.limit(cam.speedLimitMph), statusWord)
-            val builder = NotificationCompat.Builder(this, if (prefs.sound) CHANNEL_ALERTS else CHANNEL_ALERTS_SILENT)
+            val builder = NotificationCompat.Builder(this, if (prefs.sound && !barOnScreen) CHANNEL_ALERTS else CHANNEL_ALERTS_SILENT)
                 .setSmallIcon(R.drawable.ic_radar)
                 .setContentTitle(title)
                 .setContentText(text)
                 .setStyle(NotificationCompat.BigTextStyle().bigText(text))
-                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setPriority(if (barOnScreen) NotificationCompat.PRIORITY_DEFAULT else NotificationCompat.PRIORITY_HIGH)
                 .setCategory(NotificationCompat.CATEGORY_NAVIGATION)
                 .setContentIntent(openAppIntent())
                 .setAutoCancel(true)
                 .setTimeoutAfter(60_000)
             notificationManager.notify(NOTIF_ALERT_BASE + cam.id.hashCode(), builder.build())
             if (prefs.vibration) vibrate()
+            if (prefs.sound && barOnScreen) {
+                if (tone == null) tone = ToneGenerator(AudioManager.STREAM_MUSIC, 90)
+                tone?.startTone(ToneGenerator.TONE_CDMA_ALERT_CALL_GUARD, 400)
+            }
         }
         if (prefs.voice) speak(speech, "alert-${cam.id}-${a.event}")
     }
@@ -329,6 +355,7 @@ class TrackingService : Service(), LocationListener {
     override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {}
 
     override fun onDestroy() {
+        banner.reset()
         locationManager.removeUpdates(this)
         wakeLock?.let { if (it.isHeld) it.release() }
         tts?.shutdown()
