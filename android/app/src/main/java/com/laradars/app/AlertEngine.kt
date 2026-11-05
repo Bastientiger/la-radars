@@ -30,8 +30,9 @@ class AlertEngine(
     /**
      * @param headingDeg direction of travel, or null when unknown (stationary / first fix).
      * @param speedMph current speed, used only for the speeding flag.
+     * @param muted true while on a freeway: nearest is still reported, nothing fires.
      */
-    fun update(lat: Double, lng: Double, headingDeg: Double?, speedMph: Int): Update {
+    fun update(lat: Double, lng: Double, headingDeg: Double?, speedMph: Int, muted: Boolean = false): Update {
         var nearest: Nearest? = null
         val alerts = ArrayList<Alert>()
         var speedingIn: Camera? = null
@@ -41,6 +42,7 @@ class AlertEngine(
             if (onlyLive && !cam.isLive) continue
             val d = cam.distanceTo(lat, lng)
             if (nearest == null || d < nearest.distanceM) nearest = Nearest(cam, d)
+            if (muted) continue
 
             val s = stage[cam.id] ?: Stage.ARMED
             val inside = d <= insideM

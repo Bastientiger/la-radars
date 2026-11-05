@@ -51,6 +51,10 @@ class TrackingService : Service(), LocationListener {
     private val banner by lazy { AlertBanner(this) }
     private var movementConfirmed = false
     private var autoStarted = false
+    // Loaded off the main thread: 20 000 points take a moment to index. Until then, no muting.
+    @Volatile private var freeways: FreewayIndex? = null
+    private var freewayVotes = 0
+    private var onFreeway = false
 
     override fun onCreate() {
         super.onCreate()
@@ -58,6 +62,7 @@ class TrackingService : Service(), LocationListener {
         prefs = Prefs(this)
         units = Units(prefs.metric)
         engine = AlertEngine(CameraRepository.load(this), prefs.radiusM.toDouble(), prefs.onlyLive)
+        Thread { freeways = FreewayIndex.load(this) }.start()
         createChannels()
         tts = TextToSpeech(this) { status ->
             if (status == TextToSpeech.SUCCESS) {
@@ -120,6 +125,8 @@ class TrackingService : Service(), LocationListener {
         recorder = TripRecorder()
         movementConfirmed = false
         autoStarted = source != null
+        freewayVotes = 0
+        onFreeway = false
         engine.reset()
         TrackerState.post(Snapshot(running = true))
         ToggleWidget.refresh(this)
@@ -151,7 +158,8 @@ class TrackingService : Service(), LocationListener {
         updateHeading(location)
 
         val speedMph = if (location.hasSpeed()) Units(false).speed(location.speed) else 0
-        val update = engine.update(location.latitude, location.longitude, heading, speedMph)
+        updateFreeway(location.latitude, location.longitude, speedMph)
+        val update = engine.update(location.latitude, location.longitude, heading, speedMph, muted = onFreeway)
         val insideOf = update.speedingIn ?: update.nearest?.takeIf { it.distanceM <= 45.0 }?.camera
         recorder?.onFix(location.latitude, location.longitude, speedMph, insideOf)
 
@@ -163,13 +171,16 @@ class TrackingService : Service(), LocationListener {
                 headingDeg = heading,
                 nearest = update.nearest,
                 speeding = update.speedingIn != null,
+                onFreeway = onFreeway,
             )
         )
 
         val n = update.nearest
-        val statusText = if (n != null) {
-            getString(R.string.status_nearest, n.camera.street, units.distance(n.distanceM))
-        } else getString(R.string.status_waiting_gps)
+        val statusText = when {
+            onFreeway -> getString(R.string.status_freeway)
+            n != null -> getString(R.string.status_nearest, n.camera.street, units.distance(n.distanceM))
+            else -> getString(R.string.status_waiting_gps)
+        }
         notificationManager.notify(NOTIF_STATUS, buildStatusNotification(statusText))
 
         update.alerts.forEach { alert(it, speedMph) }
@@ -197,6 +208,23 @@ class TrackingService : Service(), LocationListener {
             .setTimeoutAfter(8_000)
             .build()
         notificationManager.notify(NOTIF_ON_ROAD, n)
+    }
+
+    /**
+     * Freeway mode with a little inertia: three fixes along a freeway to enter it, three
+     * fixes away from one to leave it, so an overpass or GPS jitter does not flip it.
+     */
+    private fun updateFreeway(lat: Double, lng: Double, speedMph: Int) {
+        val match = freeways?.isOnFreeway(lat, lng, heading, speedMph) ?: false
+        freewayVotes = if (match) minOf(3, freewayVotes + 1) else maxOf(-3, freewayVotes - 1)
+        android.util.Log.d(TAG, "fwy heading=${heading?.toInt()} closest=${freeways?.lastClosestM?.toInt()}m speed=$speedMph match=$match votes=$freewayVotes")
+        val before = onFreeway
+        if (freewayVotes >= 3) onFreeway = true
+        if (freewayVotes <= -3) onFreeway = false
+        if (before != onFreeway) {
+            android.util.Log.i(TAG, if (onFreeway) "freeway: alerts muted" else "freeway left: alerts on")
+            if (onFreeway) banner.reset()
+        }
     }
 
     /** The bar over other apps: shown from the first alert until the camera is passed. */
@@ -227,7 +255,7 @@ class TrackingService : Service(), LocationListener {
         if (moved >= 15.0) {
             val derived = Geo.bearing(prev.latitude, prev.longitude, location.latitude, location.longitude)
             val gps = if (location.hasBearing() && location.hasSpeed() && location.speed > 2f) location.bearing.toDouble() else null
-            heading = if (gps != null && Geo.angleDiff(gps, derived) < 45.0) gps else derived
+            heading = if (gps != null && Geo.angleDiff(gps, derived) < 45.0) Geo.meanBearing(gps, derived) else derived
             headingFix = location
         } else if (location.time - prev.time > 20_000) {
             heading = null  // stationary for a while: direction unknown

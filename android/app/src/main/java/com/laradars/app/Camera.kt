@@ -87,6 +87,13 @@ object Geo {
         return (Math.toDegrees(Math.atan2(y, x)) + 360) % 360
     }
 
+    /** Mean of two bearings on the circle (so 350 and 10 give 0, not 180). */
+    fun meanBearing(a: Double, b: Double): Double {
+        val x = Math.cos(Math.toRadians(a)) + Math.cos(Math.toRadians(b))
+        val y = Math.sin(Math.toRadians(a)) + Math.sin(Math.toRadians(b))
+        return (Math.toDegrees(Math.atan2(y, x)) + 360) % 360
+    }
+
     /** Smallest angle between two bearings, 0..180. */
     fun angleDiff(a: Double, b: Double): Double {
         val d = Math.abs(a - b) % 360

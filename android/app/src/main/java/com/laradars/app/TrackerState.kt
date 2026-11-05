@@ -13,6 +13,7 @@ data class Snapshot(
     val headingDeg: Double? = null,
     val nearest: AlertEngine.Nearest? = null,
     val speeding: Boolean = false,
+    val onFreeway: Boolean = false,
 )
 
 object TrackerState {

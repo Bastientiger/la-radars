@@ -7,6 +7,8 @@
     <string name="state_off">Driving mode off</string>
     <string name="state_waiting">Waiting for GPS…</string>
     <string name="state_on">Watching for cameras</string>
+    <string name="state_freeway">On the freeway · alerts muted</string>
+    <string name="status_freeway">On the freeway · no cameras on freeways, alerts muted</string>
     <string name="speed_unit">mph</string>
     <string name="hint_idle">Alerts keep working while Google Maps, Waze or music is on screen. Auto-start is in Settings.</string>
     <string name="hint_running">Alerts are on. You can switch to another app.</string>

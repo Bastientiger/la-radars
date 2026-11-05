@@ -157,6 +157,7 @@ class MainActivity : AppCompatActivity() {
             when {
                 !s.running -> R.string.state_off
                 !s.hasFix -> R.string.state_waiting
+                s.onFreeway -> R.string.state_freeway
                 else -> R.string.state_on
             }
         )
