@@ -49,6 +49,8 @@ class TrackingService : Service(), LocationListener {
     private var lastBeepMs = 0L
     private var tone: ToneGenerator? = null
     private val banner by lazy { AlertBanner(this) }
+    private var movementConfirmed = false
+    private var autoStarted = false
 
     override fun onCreate() {
         super.onCreate()
@@ -116,6 +118,8 @@ class TrackingService : Service(), LocationListener {
             return
         }
         recorder = TripRecorder()
+        movementConfirmed = false
+        autoStarted = source != null
         engine.reset()
         TrackerState.post(Snapshot(running = true))
         ToggleWidget.refresh(this)
@@ -171,6 +175,28 @@ class TrackingService : Service(), LocationListener {
         update.alerts.forEach { alert(it, speedMph) }
         update.speedingIn?.let { speedingBeep() }
         updateBanner(update, speedMph)
+        if (autoStarted && !movementConfirmed && (speedMph >= 5 || heading != null)) {
+            movementConfirmed = true
+            confirmOnTheRoad()
+        }
+    }
+
+    /**
+     * After an automatic start (driving detected, car Bluetooth), one short pop-up the first
+     * time the car is seen moving: the driver knows the app woke up and is watching.
+     */
+    private fun confirmOnTheRoad() {
+        val n = NotificationCompat.Builder(this, CHANNEL_ALERTS_SILENT)
+            .setSmallIcon(R.drawable.ic_radar)
+            .setContentTitle(getString(R.string.on_road_title))
+            .setContentText(getString(R.string.on_road_text))
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setCategory(NotificationCompat.CATEGORY_STATUS)
+            .setContentIntent(openAppIntent())
+            .setAutoCancel(true)
+            .setTimeoutAfter(8_000)
+            .build()
+        notificationManager.notify(NOTIF_ON_ROAD, n)
     }
 
     /** The bar over other apps: shown from the first alert until the camera is passed. */
@@ -231,7 +257,12 @@ class TrackingService : Service(), LocationListener {
             // keep the notification quiet in the shade and play the sound ourselves.
             val barOnScreen = prefs.banner && AlertBanner.canDraw(this) && !TrackerState.appVisible
             val text = getString(R.string.alert_text, cam.street, cam.from, cam.to, units.limit(cam.speedLimitMph), statusWord)
-            val builder = NotificationCompat.Builder(this, if (prefs.sound && !barOnScreen) CHANNEL_ALERTS else CHANNEL_ALERTS_SILENT)
+            val channel = when {
+                barOnScreen -> CHANNEL_ALERTS_QUIET
+                prefs.sound -> CHANNEL_ALERTS
+                else -> CHANNEL_ALERTS_SILENT
+            }
+            val builder = NotificationCompat.Builder(this, channel)
                 .setSmallIcon(R.drawable.ic_radar)
                 .setContentTitle(title)
                 .setContentText(text)
@@ -323,9 +354,12 @@ class TrackingService : Service(), LocationListener {
             enableVibration(false)
             setSound(null, null)
         }
+        // No pop-up at all: used while the alert bar is drawn over the screen.
+        val quiet = NotificationChannel(CHANNEL_ALERTS_QUIET, getString(R.string.channel_alerts_quiet), NotificationManager.IMPORTANCE_LOW)
         notificationManager.createNotificationChannel(status)
         notificationManager.createNotificationChannel(alerts)
         notificationManager.createNotificationChannel(silent)
+        notificationManager.createNotificationChannel(quiet)
     }
 
     private fun buildStatusNotification(text: String): Notification {
@@ -374,7 +408,9 @@ class TrackingService : Service(), LocationListener {
         const val CHANNEL_STATUS = "status"
         const val CHANNEL_ALERTS = "alerts"
         const val CHANNEL_ALERTS_SILENT = "alerts_silent"
+        const val CHANNEL_ALERTS_QUIET = "alerts_quiet"
         const val NOTIF_STATUS = 1
+        const val NOTIF_ON_ROAD = 2
         const val NOTIF_ALERT_BASE = 1000
 
         /** Start a trip from anywhere (activity, widget, auto-start receivers). */

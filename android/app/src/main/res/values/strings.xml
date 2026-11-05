@@ -72,7 +72,10 @@
     <string name="channel_status">Driving mode</string>
     <string name="channel_alerts">Camera alerts</string>
     <string name="channel_alerts_silent">Camera alerts (silent)</string>
+    <string name="channel_alerts_quiet">Camera alerts (while the alert bar is shown)</string>
     <string name="status_title">LA Radars is watching</string>
+    <string name="on_road_title">LA Radars started by itself</string>
+    <string name="on_road_text">Driving detected · watching the 125 cameras for you</string>
     <string name="status_waiting_gps">Waiting for GPS signal…</string>
     <string name="status_nearest">Nearest: %1$s (%2$s)</string>
     <string name="action_stop">Stop</string>
