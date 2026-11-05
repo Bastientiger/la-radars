@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LA Radars — know every Los Angeles speed camera before it sees you</title>
+<meta name="description" content="Free Android app that warns you before each of Los Angeles' 125 new speed safety cameras, even while Google Maps or Waze is on screen.">
+<meta property="og:title" content="LA Radars — Los Angeles speed camera alerts">
+<meta property="og:description" content="125 LADOT cameras. Big distance countdown over any app. Auto-start when you drive. Free for Android.">
+<meta property="og:image" content="https://bastientiger.github.io/la-radars/img/main.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23F7F7F3'/%3E%3Ccircle cx='50' cy='50' r='40' fill='%23BFE2E4'/%3E%3Ccircle cx='50' cy='50' r='30' fill='%2326AEB9'/%3E%3Ccircle cx='50' cy='50' r='19' fill='%23176872'/%3E%3Ccircle cx='50' cy='50' r='8' fill='%230B1E23'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#F7F7F3;--card:#EEF4F4;--text:#0B1E23;--muted:#5E7C82;--accent:#26AEB9;--live:#1D8E98;
+    --zone:#134A52;--amber:#F5A524;--warn:#E4572E;
+    --r0:#E8F1F1;--r1:#D4E9EA;--r2:#BFE2E4;--r3:#A3D9DD;--r4:#7FCDD3;--r5:#4FBEC7;--r6:#26AEB9;--r7:#1D8E98;--r8:#176872;--r9:#134A52;--r10:#10343A;--r11:#0B1E23;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,"SF Pro Text",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:var(--live)}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+
+  /* header */
+  header{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:20px;letter-spacing:-.02em;text-decoration:none;color:var(--text)}
+  .brand .dot{width:30px;height:30px;border-radius:50%;background:radial-gradient(circle,var(--r11) 0 18%,var(--r8) 18% 40%,var(--r6) 40% 62%,var(--r3) 62% 84%,var(--r1) 84%)}
+  header nav a{color:var(--muted);text-decoration:none;margin-left:22px;font-size:14px;font-weight:600}
+  header nav a:hover{color:var(--text)}
+
+  /* hero */
+  .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:40px 0 70px}
+  h1{font-size:clamp(38px,6vw,64px);line-height:1.02;letter-spacing:-.035em;margin:0 0 18px;font-weight:800}
+  h1 em{font-style:normal;color:var(--live)}
+  .lead{font-size:19px;color:var(--muted);max-width:520px;margin:0 0 30px}
+  .cta{display:inline-flex;align-items:center;gap:12px;background:var(--text);color:var(--bg);text-decoration:none;font-weight:800;font-size:17px;padding:18px 28px;border-radius:999px;box-shadow:0 10px 30px rgba(11,30,35,.18);transition:transform .15s,box-shadow .15s}
+  .cta:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(11,30,35,.24)}
+  .cta svg{width:22px;height:22px;fill:var(--r4)}
+  .sub{margin-top:14px;font-size:13px;color:var(--muted)}
+  .sub b{color:var(--text)}
+
+  /* radar */
+  .radar{position:relative;aspect-ratio:1;max-width:420px;margin:0 auto;width:100%}
+  .ring{position:absolute;left:50%;top:50%;border-radius:50%;transform:translate(-50%,-50%);animation:breathe 6s ease-in-out infinite}
+  .ring:nth-child(1){width:100%;height:100%;background:var(--r0);animation-delay:0s}
+  .ring:nth-child(2){width:91%;height:91%;background:var(--r1);animation-delay:-.45s}
+  .ring:nth-child(3){width:82%;height:82%;background:var(--r2);animation-delay:-.9s}
+  .ring:nth-child(4){width:73%;height:73%;background:var(--r3);animation-delay:-1.35s}
+  .ring:nth-child(5){width:64%;height:64%;background:var(--r4);animation-delay:-1.8s}
+  .ring:nth-child(6){width:55%;height:55%;background:var(--r5);animation-delay:-2.25s}
+  .ring:nth-child(7){width:46%;height:46%;background:var(--r6);animation-delay:-2.7s}
+  .ring:nth-child(8){width:38%;height:38%;background:var(--r7);animation-delay:-3.15s}
+  .ring:nth-child(9){width:30%;height:30%;background:var(--r8);animation-delay:-3.6s}
+  .ring:nth-child(10){width:22%;height:22%;background:var(--r9);animation-delay:-4.05s}
+  .ring:nth-child(11){width:15%;height:15%;background:var(--r10);animation-delay:-4.5s}
+  .ring:nth-child(12){width:8%;height:8%;background:var(--r11);animation-delay:-4.95s}
+  .ripple{position:absolute;left:50%;top:50%;width:14%;height:14%;border-radius:50%;border:2px solid var(--live);transform:translate(-50%,-50%);animation:ripple 6s linear infinite;opacity:0}
+  @keyframes breathe{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.035)}}
+  @keyframes ripple{0%{width:14%;height:14%;opacity:.55}100%{width:100%;height:100%;opacity:0}}
+  .radar .speed{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;color:var(--bg);line-height:1}
+  .radar .speed b{display:block;font-size:clamp(44px,9vw,64px);font-weight:900;letter-spacing:-.03em}
+  .radar .speed span{font-size:11px;letter-spacing:.25em;color:var(--r3)}
+  @media (prefers-reduced-motion:reduce){.ring,.ripple{animation:none}.ripple{display:none}}
+
+  /* alert bar demo */
+  .bar{margin:0 auto 60px;max-width:620px;border-radius:22px;overflow:hidden;box-shadow:0 18px 50px rgba(11,30,35,.16);background:var(--amber);color:var(--text);text-align:center;padding:30px 20px 22px;position:relative}
+  .bar.red{background:var(--warn);color:#fff}
+  .bar .d{font-size:clamp(56px,10vw,96px);font-weight:900;line-height:.95;letter-spacing:-.04em}
+  .bar .s{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-top:8px;opacity:.9}
+  .bar .wm{position:absolute;top:50%;width:170px;height:170px;border-radius:50%;transform:translateY(-50%);opacity:.14;background:radial-gradient(circle,currentColor 0 12%,transparent 12% 24%,currentColor 24% 36%,transparent 36% 48%,currentColor 48% 60%,transparent 60% 72%,currentColor 72% 84%,transparent 84%)}
+  .bar .wm.l{left:-50px}.bar .wm.r{right:-50px}
+  .bars{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:900px;margin:0 auto 70px}
+  .bars .bar{margin:0}
+  .caption{text-align:center;color:var(--muted);font-size:14px;margin:-50px 0 70px}
+
+  /* sections */
+  h2{font-size:clamp(28px,4vw,40px);letter-spacing:-.03em;line-height:1.1;margin:0 0 12px;font-weight:800}
+  .kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:10px}
+  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0 80px}
+  .f{background:var(--card);border-radius:20px;padding:22px}
+  .f .n{font-size:30px;font-weight:900;color:var(--live);letter-spacing:-.03em;line-height:1}
+  .f h3{margin:12px 0 6px;font-size:17px}
+  .f p{margin:0;color:var(--muted);font-size:14px}
+
+  .shots{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:28px 0 80px}
+  .shot{border-radius:26px;overflow:hidden;background:var(--text);padding:8px;box-shadow:0 16px 40px rgba(11,30,35,.14)}
+  .shot img{display:block;width:100%;border-radius:20px}
+  .shot p{margin:10px 4px 2px;color:var(--bg);font-size:13px;text-align:center;opacity:.85}
+
+  .fines{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start;margin-bottom:80px}
+  .table{background:var(--card);border-radius:20px;padding:10px 22px}
+  .row{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid rgba(11,30,35,.08)}
+  .row:last-child{border-bottom:0}
+  .row b{font-size:24px;color:var(--live);font-weight:900}
+  .row small{display:block;color:var(--muted);font-size:12px}
+
+  .install{background:var(--text);color:var(--bg);border-radius:28px;padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;margin-bottom:60px}
+  .install h2{color:var(--bg)}
+  .install ol{margin:0;padding-left:22px;color:var(--r3);font-size:15px}
+  .install li{margin:10px 0}
+  .install li b{color:var(--bg)}
+  .install .cta{background:var(--accent);color:var(--text)}
+  .install .cta svg{fill:var(--text)}
+  .install .sub{color:var(--r3)}
+
+  footer{color:var(--muted);font-size:12px;padding:20px 0 50px;border-top:1px solid rgba(11,30,35,.08);line-height:1.7}
+
+  @media (max-width:820px){
+    .hero{grid-template-columns:1fr;padding-top:10px}
+    .hero .radar{max-width:280px;order:-1}
+    .features{grid-template-columns:1fr}
+    .shots{grid-template-columns:1fr 1fr}
+    .fines,.install,.bars{grid-template-columns:1fr}
+    header nav{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="#"><span class="dot"></span>LA Radars</a>
+    <nav><a href="#how">How it works</a><a href="#fines">Fines</a><a href="#install">Install</a></nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <div class="kicker">Los Angeles · 125 speed safety cameras · Android</div>
+      <h1>Know every LA speed camera <em>before it sees you.</em></h1>
+      <p class="lead">LA Radars watches the city's new speed cameras for you and warns you in time, even while Google Maps, Waze or your music is on screen.</p>
+      <a class="cta" href="https://github.com/Bastientiger/la-radars/releases/latest/download/LA-Radars.apk">
+        <svg viewBox="0 0 24 24"><path d="M17.5 8.1l1.4-2.4a.4.4 0 00-.7-.4l-1.4 2.5A8.3 8.3 0 0012 6.9a8.3 8.3 0 00-4.8.9L5.8 5.3a.4.4 0 00-.7.4l1.4 2.4A7.5 7.5 0 003 14h18a7.5 7.5 0 00-3.5-5.9zM8.5 11.6a.8.8 0 110-1.6.8.8 0 010 1.6zm7 0a.8.8 0 110-1.6.8.8 0 010 1.6zM3 15h18v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4z"/></svg>
+        Download for Android
+      </a>
+      <p class="sub">Free · <b>no account</b> · installs in one tap outside the Play Store · updates itself<br>iPhone version in the works.</p>
+    </div>
+    <div class="radar" aria-hidden="true">
+      <div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div>
+      <div class="ripple"></div>
+      <div class="speed"><b>35</b><span>MPH</span></div>
+    </div>
+  </section>
+
+  <div class="bars" aria-hidden="true">
+    <div class="bar"><span class="wm l"></span><span class="wm r"></span><div class="d">650 ft</div><div class="s">Speed camera · Beverly Blvd · limit 35</div></div>
+    <div class="bar red"><span class="wm l"></span><span class="wm r"></span><div class="d">150 ft</div><div class="s">Speed camera · Beverly Blvd · limit 35</div></div>
+  </div>
+  <p class="caption">The alert bar appears on top of whatever app you're using, counts the distance down live, and turns red when you're close or over the limit.</p>
+
+  <section id="how">
+    <div class="kicker">How it works</div>
+    <h2>Built around the official LADOT list.</h2>
+    <div class="features">
+      <div class="f"><div class="n">125</div><h3>Every camera, exactly placed</h3><p>All 125 LADOT speed safety systems, with the exact street segment, speed limit and live / under-construction status. Refreshed from the city every day.</p></div>
+      <div class="f"><div class="n">0 taps</div><h3>Starts by itself</h3><p>Starts driving mode when your phone detects you're driving or when your car's Bluetooth connects. A short confirmation lets you know it's watching.</p></div>
+      <div class="f"><div class="n">1 way</div><h3>Only if you're heading there</h3><p>No alert for a camera on a parallel street or behind you. Alerts are muted on freeways, where there are no cameras but plenty of camera streets underneath.</p></div>
+      <div class="f"><div class="n">3 ways</div><h3>Voice, sound, vibration</h3><p>“Speed camera in a quarter mile, limit 35.” Then halfway, zone entry, and “camera passed”. Beeps while you're over the limit in the zone. Each one can be switched off.</p></div>
+      <div class="f"><div class="n">mi / km</div><h3>Your units, your distance</h3><p>Miles or kilometres. Alert distance from 100 m to 1 km. Live map behind the radar, heading-up, with the nearest camera drawn on it.</p></div>
+      <div class="f"><div class="n">100%</div><h3>Private</h3><p>Your location never leaves the phone. No account, no tracking, no ads. The app only talks to the internet to fetch map tiles and the daily camera list.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="kicker">The app</div>
+    <h2>A radar that breathes.</h2>
+    <div class="shots">
+      <div class="shot"><img src="img/main.jpg" alt="Main screen: live map, rings, nearest camera"><p>Driving mode</p></div>
+      <div class="shot"><img src="img/banner.jpg" alt="Alert bar over the home screen"><p>Alert over any app</p></div>
+      <div class="shot"><img src="img/map.jpg" alt="Map of all cameras"><p>All 125 on a map</p></div>
+      <div class="shot"><img src="img/fines.jpg" alt="Fines and rules screen"><p>Fines &amp; rules</p></div>
+    </div>
+  </section>
+
+  <section id="fines" class="fines">
+    <div>
+      <div class="kicker">Why it matters</div>
+      <h2>Cameras ticket at 11 mph over. Fines start at $50.</h2>
+      <p style="color:var(--muted)">Los Angeles switched on its first speed safety cameras on October 26, 2026 and plans to have all 125 running by the end of the year. Each camera starts with a 60-day warning period, then the notices in the mail become fines. They're civil penalties: no points, but they add up fast. One avoided ticket pays for a lot.</p>
+    </div>
+    <div class="table">
+      <div class="row"><span>11 – 15 mph over<small>first time: warning only</small></span><b>$50</b></div>
+      <div class="row"><span>16 – 25 mph over</span><b>$100</b></div>
+      <div class="row"><span>26 mph or more over</span><b>$200</b></div>
+      <div class="row"><span>100 mph or faster</span><b>$500</b></div>
+    </div>
+  </section>
+
+  <section id="install" class="install">
+    <div>
+      <div class="kicker" style="color:var(--r3)">Install in a minute</div>
+      <h2>Android, outside the Play Store.</h2>
+      <ol>
+        <li><b>Download</b> the app with the button. Chrome may ask you to confirm the download.</li>
+        <li><b>Open the file.</b> Android asks you to allow installs from Chrome once: tap Settings, switch it on, go back, tap Install.</li>
+        <li><b>Start driving mode.</b> Allow location and notifications, then allow the alert bar over other apps when the app asks.</li>
+        <li>On Samsung and Xiaomi phones, tap <b>“Allow running in background”</b> so the GPS isn't cut after a few minutes.</li>
+      </ol>
+    </div>
+    <div style="text-align:center">
+      <a class="cta" href="https://github.com/Bastientiger/la-radars/releases/latest/download/LA-Radars.apk">
+        <svg viewBox="0 0 24 24"><path d="M17.5 8.1l1.4-2.4a.4.4 0 00-.7-.4l-1.4 2.5A8.3 8.3 0 0012 6.9a8.3 8.3 0 00-4.8.9L5.8 5.3a.4.4 0 00-.7.4l1.4 2.4A7.5 7.5 0 003 14h18a7.5 7.5 0 00-3.5-5.9zM8.5 11.6a.8.8 0 110-1.6.8.8 0 010 1.6zm7 0a.8.8 0 110-1.6.8.8 0 010 1.6zM3 15h18v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4z"/></svg>
+        Download LA-Radars.apk
+      </a>
+      <p class="sub">Android 8 and newer · about 6 MB · new versions arrive inside the app</p>
+    </div>
+  </section>
+
+  <footer>
+    LA Radars is an independent app and is not affiliated with the City of Los Angeles or LADOT. Camera locations come from LADOT's published Speed Safety System lists; freeway and map data © OpenStreetMap contributors. The app is an aid, not a guarantee: cameras may be added or moved, and the posted speed limit always applies. Keep your eyes on the road and never handle your phone while driving.
+    <br><a href="https://github.com/Bastientiger/la-radars">Source code and releases on GitHub</a>
+  </footer>
+</div>
+</body>
+</html>
