@@ -54,8 +54,15 @@ Ensuite tu peux passer sur Google Maps : l'alerte arrive en notification, en vib
 - Séquence vocale : approche → mi-distance → « Camera zone » → « Camera passed ». Bips répétés tant
   qu'on roule à plus de 10 mph au-dessus de la limite dans la zone.
 - Réglages : miles ou kilomètres, voix / son / vibration, radars actifs seulement.
-- Démarrage automatique : quand le téléphone détecte la conduite, ou quand le Bluetooth de la voiture
-  se connecte (nécessite la position « Autoriser tout le temps »).
+- Démarrage automatique (v1.10) : trois déclencheurs, le premier qui réagit lance le trajet.
+  Un petit service de veille (notification silencieuse « Waiting for driving ») vérifie la position
+  toutes les 90 s via antennes/Wi-Fi, plus les positions obtenues par d'autres applis (Google Maps,
+  Waze) : à plus de 12 mph ou 500 m parcourus en moins de 5 min, le trajet démarre (1 à 3 min).
+  En parallèle : la détection « en véhicule » de Google Play (lente, capteurs) et le Bluetooth de la
+  voiture. Pas de redémarrage pendant 15 min après un arrêt manuel. Les inscriptions sont refaites à
+  chaque ouverture de l'app, au redémarrage du téléphone et après chaque mise à jour.
+  Nécessite la position « Autoriser tout le temps » ; sur Samsung, mettre aussi l'app dans
+  « Never sleeping apps » (Battery › Background usage limits).
 - Carte OpenStreetMap des 125 tronçons, recherche par rue, filtre par district, ouverture dans
   Google Maps.
 - Historique des trajets (durée, distance, zones traversées, excès).

@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         prefs = Prefs(this)
         heroMap = HeroMap(this, binding.heroMap)
+        AutoStart.sync(this)
         if (!prefs.onboardingDone && intent?.action != ACTION_START_TRIP) {
             startActivity(Intent(this, OnboardingActivity::class.java))
         }

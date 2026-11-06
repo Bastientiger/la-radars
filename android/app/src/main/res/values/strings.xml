@@ -184,7 +184,11 @@
     <string name="perm_battery">Run in background</string>
     <string name="perm_battery_sub">stops Samsung / Xiaomi from cutting the GPS</string>
     <string name="perm_driving">Start when driving is detected</string>
-    <string name="perm_driving_sub">uses the phone\'s motion sensors</string>
+    <string name="perm_driving_sub">speed check every 90 s + motion sensors</string>
+    <string name="perm_battery_sub_samsung">also: Battery › Background usage limits › Never sleeping apps</string>
+    <string name="channel_standby">Waiting for driving</string>
+    <string name="standby_title">Waiting for driving</string>
+    <string name="standby_text">Starts by itself at car speed · tap to start now</string>
     <string name="perm_bluetooth">Start with my car\'s Bluetooth</string>
     <string name="perm_bluetooth_sub">choose your car once</string>
     <string name="perm_optional_sub">optional</string>

@@ -61,6 +61,11 @@ class Prefs(context: Context) {
         get() = p.getString("bt_device_name", "") ?: ""
         set(v) = p.edit().putString("bt_device_name", v).apply()
 
+    /** When the driver last stopped a trip by hand; auto-start stays quiet for a while after. */
+    var lastManualStopMs: Long
+        get() = p.getLong("manual_stop", 0L)
+        set(v) = p.edit().putLong("manual_stop", v).apply()
+
     var lastDataCheckMs: Long
         get() = p.getLong("last_data_check", 0L)
         set(v) = p.edit().putLong("last_data_check", v).apply()

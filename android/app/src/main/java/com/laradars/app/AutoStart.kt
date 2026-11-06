@@ -9,6 +9,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
+import android.util.Log
 import androidx.core.content.ContextCompat
 import com.google.android.gms.location.ActivityRecognition
 import com.google.android.gms.location.ActivityTransition
@@ -17,15 +18,22 @@ import com.google.android.gms.location.ActivityTransitionResult
 import com.google.android.gms.location.DetectedActivity
 
 /**
- * Starts a trip by itself: when Android detects the phone is in a vehicle, or when the car's
- * Bluetooth connects. Both are allowed to launch a foreground service from the background,
- * but the service only gets GPS in the background with "Allow all the time" location.
+ * Starts a trip by itself, whichever of three triggers fires first:
+ *  - the phone travels at car speed (StandbyService, cheap position check every 90 s);
+ *  - Google Play detects "in vehicle" motion (slower, sensor-based);
+ *  - the car's Bluetooth connects.
+ * All three may launch a foreground service from the background, but the service only
+ * gets GPS in the background with "Allow all the time" location.
  */
 object AutoStart {
 
+    private const val TAG = TrackingService.TAG
     fun hasBackgroundLocation(context: Context): Boolean =
         Build.VERSION.SDK_INT < 29 ||
             ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_BACKGROUND_LOCATION) == PackageManager.PERMISSION_GRANTED
+
+    fun hasFineLocation(context: Context): Boolean =
+        ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
 
     fun hasActivityPermission(context: Context): Boolean =
         Build.VERSION.SDK_INT < 29 ||
@@ -35,16 +43,27 @@ object AutoStart {
         Build.VERSION.SDK_INT < 31 ||
             ContextCompat.checkSelfPermission(context, Manifest.permission.BLUETOOTH_CONNECT) == PackageManager.PERMISSION_GRANTED
 
-    private fun transitionIntent(context: Context): PendingIntent = PendingIntent.getBroadcast(
-        context, 10, Intent(context, DrivingReceiver::class.java).setAction(DrivingReceiver.ACTION),
-        PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE
-    )
+    private fun broadcast(context: Context, code: Int, cls: Class<*>, action: String): PendingIntent =
+        PendingIntent.getBroadcast(
+            context, code, Intent(context, cls).setAction(action),
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE
+        )
 
-    /** Registers (or removes) the "in vehicle" detection with Google Play services. */
-    fun syncDrivingDetection(context: Context) {
+    /**
+     * (Re)registers both background watchers with Google Play services, or removes them when
+     * the setting is off. Registrations do not survive a reboot or an app update, so this runs
+     * at every app launch, at boot and after each update, not only when the switch is flipped.
+     */
+    fun sync(context: Context) {
+        val on = Prefs(context).autoStartDriving
+        syncDrivingDetection(context, on)
+        StandbyService.sync(context)
+    }
+
+    private fun syncDrivingDetection(context: Context, on: Boolean) {
         val client = ActivityRecognition.getClient(context)
-        val pi = transitionIntent(context)
-        if (!Prefs(context).autoStartDriving || !hasActivityPermission(context)) {
+        val pi = broadcast(context, 10, DrivingReceiver::class.java, DrivingReceiver.ACTION)
+        if (!on || !hasActivityPermission(context)) {
             runCatching { client.removeActivityTransitionUpdates(pi) }
             return
         }
@@ -90,6 +109,13 @@ object AutoStart {
         }
     }
 
+    /** After a reboot or an app update, Play services has forgotten us: register again. */
+    class BootReceiver : BroadcastReceiver() {
+        override fun onReceive(context: Context, intent: Intent) {
+            if (intent.action == Intent.ACTION_BOOT_COMPLETED || intent.action == Intent.ACTION_MY_PACKAGE_REPLACED) sync(context)
+        }
+    }
+
     /** Opens the installer once an app update has finished downloading. */
     class DownloadReceiver : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
@@ -102,6 +128,12 @@ object AutoStart {
     private fun maybeStart(context: Context, source: String) {
         if (TrackerState.current.running) return
         if (!hasBackgroundLocation(context)) return
-        TrackingService.start(context, source)
+        Log.i(TAG, "auto-start: $source")
+        try {
+            TrackingService.start(context, source)
+        } catch (e: Exception) {
+            // Android 12+ may refuse a background start; the standby service retries by speed.
+            Log.w(TAG, "background start refused: $e")
+        }
     }
 }

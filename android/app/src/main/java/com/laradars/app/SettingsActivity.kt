@@ -23,7 +23,7 @@ class SettingsActivity : AppCompatActivity() {
 
     private val askActivity = registerForActivityResult(ActivityResultContracts.RequestPermission()) { ok ->
         prefs.autoStartDriving = ok
-        AutoStart.syncDrivingDetection(this)
+        AutoStart.sync(this)
         refresh()
     }
     private val askBluetooth = registerForActivityResult(ActivityResultContracts.RequestPermission()) { ok ->
@@ -61,7 +61,7 @@ class SettingsActivity : AppCompatActivity() {
                 askActivity.launch(Manifest.permission.ACTIVITY_RECOGNITION)
             } else {
                 prefs.autoStartDriving = on
-                AutoStart.syncDrivingDetection(this)
+                AutoStart.sync(this)
                 refresh()
             }
         }

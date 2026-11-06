@@ -21,7 +21,7 @@ class PermissionsActivity : AppCompatActivity() {
 
     private val askPermission = registerForActivityResult(ActivityResultContracts.RequestPermission()) { ok ->
         val p = pendingPerm; pendingPerm = null
-        if (ok && p == Perm.DRIVING_DETECTION) { Prefs(this).autoStartDriving = true; AutoStart.syncDrivingDetection(this) }
+        if (ok && p == Perm.DRIVING_DETECTION) { Prefs(this).autoStartDriving = true; AutoStart.sync(this) }
         render()
     }
 
@@ -56,7 +56,11 @@ class PermissionsActivity : AppCompatActivity() {
             val c = ItemPermBinding.inflate(LayoutInflater.from(this), b.cards, true)
             val done = perm.granted(this)
             c.title.text = getString(perm.titleRes)
-            c.subtitle.text = getString(if (done) perm.subtitleRes else if (perm.optional) R.string.perm_optional_sub else perm.subtitleRes)
+            c.subtitle.text = when {
+                perm == Perm.BATTERY && Build.MANUFACTURER.equals("samsung", ignoreCase = true) -> getString(R.string.perm_battery_sub_samsung)
+                !done && perm.optional -> getString(R.string.perm_optional_sub)
+                else -> getString(perm.subtitleRes)
+            }
             c.toggle.visibility = View.GONE
             c.action.visibility = View.VISIBLE
             when {

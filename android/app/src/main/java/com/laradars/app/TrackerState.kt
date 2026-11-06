@@ -1,5 +1,6 @@
 package com.laradars.app
 
+import android.os.Looper
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
@@ -27,5 +28,8 @@ object TrackerState {
     /** Set when a trip ends, so the screen can show its summary once. */
     @Volatile var lastTrip: Trip? = null
 
-    fun post(s: Snapshot) = mutable.postValue(s)
+    /** Synchronous on the main thread, so `current` is right as soon as the service changes state. */
+    fun post(s: Snapshot) {
+        if (Looper.myLooper() == Looper.getMainLooper()) mutable.value = s else mutable.postValue(s)
+    }
 }

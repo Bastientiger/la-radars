@@ -80,7 +80,7 @@ class TrackingService : Service(), LocationListener {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         when (intent?.action) {
-            ACTION_STOP -> { stopTracking(); return START_NOT_STICKY }
+            ACTION_STOP -> { prefs.lastManualStopMs = System.currentTimeMillis(); stopTracking(); return START_NOT_STICKY }
             ACTION_SETTINGS_CHANGED -> {
                 engine.radiusM = prefs.radiusM.toDouble()
                 engine.onlyLive = prefs.onlyLive
@@ -122,6 +122,7 @@ class TrackingService : Service(), LocationListener {
             stopTracking()
             return
         }
+        StandbyService.stop(this)
         recorder = TripRecorder()
         movementConfirmed = false
         autoStarted = source != null
@@ -150,6 +151,7 @@ class TrackingService : Service(), LocationListener {
         ToggleWidget.refresh(this)
         ServiceCompat.stopForeground(this, ServiceCompat.STOP_FOREGROUND_REMOVE)
         stopSelf()
+        StandbyService.sync(this)
     }
 
     override fun onLocationChanged(location: Location) {

@@ -27,7 +27,7 @@ class OnboardingActivity : AppCompatActivity() {
 
     private val askPermission = registerForActivityResult(ActivityResultContracts.RequestPermission()) { ok ->
         val p = pendingPerm; pendingPerm = null
-        if (ok && p == Perm.DRIVING_DETECTION) { prefs.autoStartDriving = true; AutoStart.syncDrivingDetection(this) }
+        if (ok && p == Perm.DRIVING_DETECTION) { prefs.autoStartDriving = true; AutoStart.sync(this) }
         if (ok && p == Perm.BLUETOOTH) chooseBluetoothDevice()
         // Android 11+: "all the time" is only offered in the app's settings page.
         if (ok && p == Perm.LOCATION && !Perm.BACKGROUND_LOCATION.granted(this) && android.os.Build.VERSION.SDK_INT >= 30) {
@@ -109,7 +109,7 @@ class OnboardingActivity : AppCompatActivity() {
                 b.body.text = getString(R.string.onb_step3_body)
                 addCard(5, Perm.BATTERY)
                 addToggle(6, Perm.DRIVING_DETECTION, prefs.autoStartDriving) { on ->
-                    if (on) request(Perm.DRIVING_DETECTION) else { prefs.autoStartDriving = false; AutoStart.syncDrivingDetection(this) }
+                    if (on) request(Perm.DRIVING_DETECTION) else { prefs.autoStartDriving = false; AutoStart.sync(this) }
                 }
                 addToggle(7, Perm.BLUETOOTH, prefs.autoStartBluetooth) { on ->
                     prefs.autoStartBluetooth = on
